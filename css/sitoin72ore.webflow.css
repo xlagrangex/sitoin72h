@@ -5957,8 +5957,8 @@ figcaption {
 .heading-7 {
   color: var(--_colors---primary--black);
   font-family: "Darker Grotesque", sans-serif;
-  font-size: 4.6rem;
-  line-height: var(--_typography---h1--line-height);
+  font-size: 5.5rem;
+  line-height: 90%;
   font-weight: 700;
   letter-spacing: -0.05em;
 }
@@ -10065,7 +10065,8 @@ figcaption {
   }
 
   .heading-7 {
-    font-size: 4.8rem;
+    font-size: 5.2rem;
+    line-height: 90%;
   }
 
   .paragraph {
@@ -13756,7 +13757,8 @@ figcaption {
   }
 
   .heading-7 {
-    font-size: 3.4rem;
+    font-size: 3.8rem;
+    line-height: 90%;
   }
 
   .div-block-129 {
