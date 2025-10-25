@@ -4294,9 +4294,11 @@ figcaption {
 }
 
 .heading-2 {
+  font-family: "Darker Grotesque", sans-serif;
   color: #6b6b6b;
   font-size: var(--border-radius--xxlarge);
-  font-weight: 500;
+  font-weight: 700;
+  letter-spacing: -0.05em;
   line-height: 2rem;
 }
 
@@ -5478,9 +5480,12 @@ figcaption {
 }
 
 .heading-3, .heading-4, .heading-5, .heading-6 {
+  font-family: "Darker Grotesque", sans-serif;
   color: var(--_colors---grey--600);
   text-align: left;
   font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
 }
 
 .filter-button {
@@ -5951,15 +5956,16 @@ figcaption {
 
 .heading-7 {
   color: var(--_colors---primary--black);
-  font-family: BDO Grotesk, Arial, sans-serif;
+  font-family: "Darker Grotesque", sans-serif;
   font-size: 4.6rem;
   line-height: var(--_typography---h1--line-height);
-  font-weight: 500;
+  font-weight: 700;
+  letter-spacing: -0.05em;
 }
 
 .heading-7.pt2 {
   font-size: 5rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .heading-8 {
@@ -7340,9 +7346,11 @@ figcaption {
 }
 
 .heading-10 {
+  font-family: "Darker Grotesque", sans-serif;
   color: var(--_colors---primary--beige);
   font-size: 4.6rem;
-  font-weight: var(--_typography---font-weight--medium);
+  font-weight: 700;
+  letter-spacing: -0.05em;
 }
 
 .heading-10.white {
@@ -7368,8 +7376,11 @@ figcaption {
 }
 
 .heading-11 {
+  font-family: "Darker Grotesque", sans-serif;
   color: var(--_colors---primary--black);
   font-size: 4.6rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
 }
 
 .heading-11._3-3 {
@@ -7449,9 +7460,11 @@ figcaption {
 }
 
 .heading-13 {
+  font-family: "Darker Grotesque", sans-serif;
   color: var(--_colors---primary--black);
   font-size: 4.6rem;
-  font-weight: 500;
+  font-weight: 700;
+  letter-spacing: -0.05em;
 }
 
 .text-style-label-6 {
