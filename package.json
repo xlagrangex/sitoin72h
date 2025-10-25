@@ -1,0 +1,33 @@
+{
+  "name": "sitoin72h",
+  "version": "1.0.0",
+  "description": "Un progetto web moderno sviluppato in 72 ore",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server .",
+    "build": "echo 'Build completed'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "website",
+    "web-development",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "xlagrangex",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xlagrangex/sitoin72h.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xlagrangex/sitoin72h/issues"
+  },
+  "homepage": "https://github.com/xlagrangex/sitoin72h#readme"
+}
