@@ -4,21 +4,39 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Darker Grotesque', var(--_typography---font-family--primary) !important;
   font-weight: 700 !important;
-  letter-spacing: -0.07em !important; /* -7% relative to font size */
+  letter-spacing: -0.04em !important; /* -4% relative to font size */
+  line-height: 0.85 !important; /* Ridotto significativamente lo spacing interlina */
 }
 
 h1 {
   font-weight: 700 !important;
-  font-size: 7rem !important; /* Aumentato da 6rem a 7rem */
 }
 
-/* Specific letter-spacing for different heading sizes */
-h1 { letter-spacing: -0.07em !important; } /* -7% of 7rem */
-h2 { letter-spacing: -0.07em !important; } /* -7% of 5rem */
-h3 { letter-spacing: -0.07em !important; } /* -7% of 3.5rem */
-h4 { letter-spacing: -0.07em !important; } /* -7% of 2.75rem */
-h5 { letter-spacing: -0.07em !important; } /* -7% of 2rem */
-h6 { letter-spacing: -0.07em !important; } /* -7% of 1.25rem */
+/* Specific letter-spacing and line-height for different heading sizes */
+h1 { 
+  letter-spacing: -0.04em !important; /* -4% of 6rem */
+  line-height: 0.8 !important; /* Spacing interlina molto ridotto */
+}
+h2 { 
+  letter-spacing: -0.04em !important; /* -4% of 5rem */
+  line-height: 0.85 !important; /* Spacing interlina ridotto */
+}
+h3 { 
+  letter-spacing: -0.04em !important; /* -4% of 3.5rem */
+  line-height: 0.9 !important; /* Spacing interlina ridotto */
+}
+h4 { 
+  letter-spacing: -0.04em !important; /* -4% of 2.75rem */
+  line-height: 0.9 !important; /* Spacing interlina ridotto */
+}
+h5 { 
+  letter-spacing: -0.04em !important; /* -4% of 2rem */
+  line-height: 0.95 !important; /* Spacing interlina leggermente ridotto */
+}
+h6 { 
+  letter-spacing: -0.04em !important; /* -4% of 1.25rem */
+  line-height: 0.95 !important; /* Spacing interlina leggermente ridotto */
+}
 
 @font-face {
   font-family: BDO Grotesk;
