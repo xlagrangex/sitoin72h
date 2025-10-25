@@ -5954,6 +5954,17 @@ figcaption {
   position: absolute;
 }
 
+.hero-title-main {
+  color: var(--_colors---primary--black);
+  font-family: "Darker Grotesque", sans-serif !important;
+  font-size: 6rem !important;
+  line-height: 85% !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.05em !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .heading-7 {
   color: var(--_colors---primary--black);
   font-family: "Darker Grotesque", sans-serif !important;
@@ -10064,6 +10075,11 @@ figcaption {
     width: 50%;
   }
 
+  .hero-title-main {
+    font-size: 5.5rem !important;
+    line-height: 85% !important;
+  }
+
   .heading-7 {
     font-size: 5.2rem !important;
     line-height: 90% !important;
@@ -13754,6 +13770,11 @@ figcaption {
   .div-block-128 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .hero-title-main {
+    font-size: 4rem !important;
+    line-height: 85% !important;
   }
 
   .heading-7 {
