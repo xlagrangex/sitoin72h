@@ -5985,7 +5985,7 @@ figcaption {
 }
 
 .hero-title-main {
-  color: var(--_colors---primary--black);
+  color: #171717 !important;
   font-family: "Darker Grotesque", sans-serif !important;
   font-size: 7.2rem !important;
   line-height: 85% !important;
@@ -5993,6 +5993,11 @@ figcaption {
   letter-spacing: -0.05em !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+.hero-title-main em {
+  color: #171717 !important;
+  font-style: italic;
 }
 
 .heading-7 {
