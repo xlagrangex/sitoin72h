@@ -3386,9 +3386,11 @@ figcaption {
 }
 
 .home-services_title-2 {
+  font-family: "Darker Grotesque", sans-serif;
   color: #e5e3dc;
   font-size: 1.75rem;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.05em;
 }
 
 .home-services_head {
@@ -6239,7 +6241,10 @@ figcaption {
 }
 
 .heading-9 {
+  font-family: "Darker Grotesque", sans-serif;
   font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
 }
 
 .container-faqs {
@@ -7397,13 +7402,15 @@ figcaption {
 .heading-11._3-3 {
   color: var(--_colors---grey--600);
   font-size: 3.3rem;
-  font-weight: var(--_typography---font-weight--semibold);
+  font-weight: 700;
+  letter-spacing: -0.05em;
 }
 
 .heading-11._3-3.white {
   color: var(--_colors---primary--beige);
   line-height: 110%;
-  font-weight: var(--_typography---font-weight--medium);
+  font-weight: 700;
+  letter-spacing: -0.05em;
 }
 
 .tab-link-tab-1-2 {
@@ -7438,10 +7445,12 @@ figcaption {
 }
 
 .heading-12 {
+  font-family: "Darker Grotesque", sans-serif;
   color: var(--_colors---primary--black);
   text-align: left;
   font-size: 1.4rem;
-  font-weight: 400;
+  font-weight: 700;
+  letter-spacing: -0.05em;
 }
 
 .service-cards-block-2 {
@@ -7669,9 +7678,11 @@ figcaption {
 }
 
 .heading-14 {
+  font-family: "Darker Grotesque", sans-serif;
   color: var(--_colors---grey--600);
   font-size: 3.3rem;
-  font-weight: var(--_typography---font-weight--semibold);
+  font-weight: 700;
+  letter-spacing: -0.05em;
 }
 
 .navbar-logo-center {
@@ -8647,8 +8658,11 @@ figcaption {
 }
 
 .heading-15 {
+  font-family: "Darker Grotesque", sans-serif;
   font-size: 2.8rem;
   line-height: 110%;
+  font-weight: 700;
+  letter-spacing: -0.05em;
 }
 
 .heading-15._2-4 {
@@ -8747,9 +8761,12 @@ figcaption {
 }
 
 .heading-16 {
+  font-family: "Darker Grotesque", sans-serif;
   color: var(--_colors---primary--white);
   font-size: 3rem;
   line-height: 100%;
+  font-weight: 700;
+  letter-spacing: -0.05em;
 }
 
 .heading-16._4 {
