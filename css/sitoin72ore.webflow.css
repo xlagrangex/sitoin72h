@@ -7370,10 +7370,8 @@ figcaption {
 }
 
 .text-span-3 {
-  font-family: "Darker Grotesque", sans-serif !important;
   font-size: 3.1rem;
   font-weight: 700;
-  letter-spacing: -0.05em;
 }
 
 .text-block-7 {
@@ -9323,6 +9321,7 @@ figcaption {
 
 .pricing_heading {
   color: #fff;
+  font-family: "BDO Grotesk", sans-serif !important;
   letter-spacing: -.02em;
   font-size: 15rem;
   font-weight: 600;
