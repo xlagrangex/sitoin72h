@@ -5956,11 +5956,11 @@ figcaption {
 
 .heading-7 {
   color: var(--_colors---primary--black);
-  font-family: "Darker Grotesque", sans-serif;
-  font-size: 5.5rem;
-  line-height: 90%;
-  font-weight: 700;
-  letter-spacing: -0.05em;
+  font-family: "Darker Grotesque", sans-serif !important;
+  font-size: 5.5rem !important;
+  line-height: 90% !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.05em !important;
 }
 
 .heading-7.pt2 {
@@ -10065,8 +10065,8 @@ figcaption {
   }
 
   .heading-7 {
-    font-size: 5.2rem;
-    line-height: 90%;
+    font-size: 5.2rem !important;
+    line-height: 90% !important;
   }
 
   .paragraph {
@@ -13757,8 +13757,8 @@ figcaption {
   }
 
   .heading-7 {
-    font-size: 3.8rem;
-    line-height: 90%;
+    font-size: 3.8rem !important;
+    line-height: 90% !important;
   }
 
   .div-block-129 {
