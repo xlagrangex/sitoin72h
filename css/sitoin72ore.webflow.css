@@ -3340,9 +3340,10 @@ figcaption {
 }
 
 .heading-style-h6-2 {
-  letter-spacing: -.02em;
+  font-family: "Darker Grotesque", sans-serif;
+  letter-spacing: -0.05em;
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 120%;
 }
 
@@ -3668,9 +3669,10 @@ figcaption {
 }
 
 .heading-style-h2-5 {
-  letter-spacing: -.02em;
+  font-family: "Darker Grotesque", sans-serif;
+  letter-spacing: -0.05em;
   font-size: 4.5rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 105%;
 }
 
@@ -4074,11 +4076,12 @@ figcaption {
 }
 
 .heading-style-h1-2 {
+  font-family: "Darker Grotesque", sans-serif;
   color: var(--_colors---grey--600);
   text-align: left;
-  letter-spacing: -.02em;
+  letter-spacing: -0.05em;
   font-size: 4.8rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 95%;
 }
 
@@ -4187,23 +4190,24 @@ figcaption {
 }
 
 .heading-style-h6-3 {
-  letter-spacing: -.02em;
+  font-family: "Darker Grotesque", sans-serif;
+  letter-spacing: -0.05em;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 120%;
 }
 
 .heading-style-h6-3.font-size-smaller {
   color: var(--_colors---primary--black);
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .heading-style-h6-3.font-size-smaller.hide-mobile-landscape {
   text-align: left;
   color: var(--_colors---primary--black);
   width: 800px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.4rem;
 }
 
@@ -4739,9 +4743,10 @@ figcaption {
 }
 
 .heading-style-display {
-  letter-spacing: -.02em;
+  font-family: "Darker Grotesque", sans-serif;
+  letter-spacing: -0.05em;
   font-size: 6rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 85%;
 }
 
@@ -7103,10 +7108,11 @@ figcaption {
 }
 
 .heading-style-h2-6 {
+  font-family: "Darker Grotesque", sans-serif;
   color: #1f242b;
-  letter-spacing: 0;
+  letter-spacing: -0.05em;
   font-size: 2.5rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.2;
 }
 
@@ -7126,7 +7132,7 @@ figcaption {
 .heading-style-h2-6.text-color-onyx-black-word {
   white-space: normal;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 700;
   display: block;
   position: static;
 }
@@ -8302,9 +8308,10 @@ figcaption {
 }
 
 .heading-style-h4-2 {
-  letter-spacing: -.02em;
+  font-family: "Darker Grotesque", sans-serif;
+  letter-spacing: -0.05em;
   font-size: 2.75rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 110%;
 }
 
@@ -8856,10 +8863,11 @@ figcaption {
 }
 
 .heading-style-h4-3 {
+  font-family: "Darker Grotesque", sans-serif;
   color: var(--_colors---primary--black);
-  letter-spacing: -.02em;
+  letter-spacing: -0.05em;
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 110%;
 }
 
@@ -8976,11 +8984,12 @@ figcaption {
 }
 
 .heading-style-display-2 {
+  font-family: "Darker Grotesque", sans-serif;
   color: var(--_colors---grey--600);
-  letter-spacing: -.02em;
+  letter-spacing: -0.05em;
   width: 800px;
   font-size: 3.3rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .slider01_mask-4 {
@@ -9443,9 +9452,10 @@ figcaption {
 }
 
 .heading-style-h4-4 {
-  letter-spacing: -.02em;
+  font-family: "Darker Grotesque", sans-serif;
+  letter-spacing: -0.05em;
   font-size: 2.75rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 110%;
 }
 
@@ -9551,9 +9561,10 @@ figcaption {
 }
 
 .heading-style-h5-2 {
-  letter-spacing: -.02em;
+  font-family: "Darker Grotesque", sans-serif;
+  letter-spacing: -0.05em;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 115%;
 }
 
@@ -9735,9 +9746,10 @@ figcaption {
 }
 
 .heading-style-h5-3 {
-  letter-spacing: -.02em;
+  font-family: "Darker Grotesque", sans-serif;
+  letter-spacing: -0.05em;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 115%;
 }
 
