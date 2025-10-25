@@ -8877,8 +8877,10 @@ figcaption {
 
 .text-block-16, .text-block-17, .text-block-18, .text-block-19 {
   color: var(--_colors---primary--white);
-  font-size: var(--fixed--1-25rem);
-  font-weight: var(--_typography---font-weight--medium);
+  font-family: "Darker Grotesque", sans-serif !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.05em !important;
   margin-bottom: 20px;
 }
 
