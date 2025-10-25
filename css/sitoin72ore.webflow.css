@@ -5956,6 +5956,30 @@ figcaption {
   position: absolute;
 }
 
+.price-main {
+  font-family: "Darker Grotesque", sans-serif !important;
+  font-size: 6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.05em !important;
+  color: var(--_colors---primary--black);
+  display: inline-block;
+  line-height: 1;
+}
+
+.price-old {
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #999;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.price-old s {
+  text-decoration: line-through;
+  color: #999;
+}
+
 .hero-title-main {
   color: var(--_colors---primary--black);
   font-family: "Darker Grotesque", sans-serif !important;
@@ -13787,6 +13811,14 @@ figcaption {
   .div-block-128 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .price-main {
+    font-size: 4rem !important;
+  }
+
+  .price-old {
+    font-size: 1rem;
   }
 
   .hero-title-main {
