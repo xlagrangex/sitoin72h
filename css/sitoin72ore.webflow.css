@@ -7370,7 +7370,10 @@ figcaption {
 }
 
 .text-span-3 {
+  font-family: "BDO Grotesk", Arial, sans-serif !important;
   font-size: 3.1rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
 }
 
 .text-block-7 {
