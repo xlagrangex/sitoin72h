@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&display=swap');
 
+/* Custom typography overrides for Darker Grotesque headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Darker Grotesque', var(--_typography---font-family--primary) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.07em !important; /* -7% relative to font size */
+}
+
+h1 {
+  font-weight: 800 !important;
+}
+
+/* Specific letter-spacing for different heading sizes */
+h1 { letter-spacing: -0.07em !important; } /* -7% of 6rem */
+h2 { letter-spacing: -0.07em !important; } /* -7% of 5rem */
+h3 { letter-spacing: -0.07em !important; } /* -7% of 3.5rem */
+h4 { letter-spacing: -0.07em !important; } /* -7% of 2.75rem */
+h5 { letter-spacing: -0.07em !important; } /* -7% of 2rem */
+h6 { letter-spacing: -0.07em !important; } /* -7% of 1.25rem */
+
 @font-face {
   font-family: BDO Grotesk;
   src: url('../fonts/BDOGrotesk-VF.ttf') format("truetype");
@@ -34,7 +53,7 @@
   --_typography---h1--font-family: 'Darker Grotesque', var(--_typography---font-family--primary);
   --_typography---h1--font-size: var(--fixed--6rem);
   --_typography---h1--line-height: 100%;
-  --_typography---h1--font-weight: 700;
+  --_typography---h1--font-weight: 800;
   --_typography---h1--letter-spacing: -0.07em;
   --_typography---h2--font-family: 'Darker Grotesque', var(--_typography---font-family--primary);
   --_typography---h2--font-size: var(--fixed--5rem);
