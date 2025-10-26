@@ -8973,12 +8973,12 @@ figcaption {
 /* Target Audience Box */
 .target-audience-box {
   width: 100%;
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-  border: 1px solid #dee2e6;
+  background: #000;
+  border: 1px solid #333;
   border-radius: 12px;
   padding: 1.5rem 2rem;
   margin: 2rem 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .target-audience-content {
@@ -8988,7 +8988,7 @@ figcaption {
 .target-audience-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #333;
+  color: #fff;
   margin-bottom: 1rem;
   font-family: "Darker Grotesque", sans-serif;
 }
@@ -9002,7 +9002,7 @@ figcaption {
 
 .target-audience-item {
   font-size: 0.95rem;
-  color: #555;
+  color: #ccc;
   font-weight: 500;
   font-family: "Darker Grotesque", sans-serif;
 }
