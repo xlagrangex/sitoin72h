@@ -2270,9 +2270,37 @@ document.addEventListener('DOMContentLoaded', function() {
   submitBtn.addEventListener('click', function(e) {
     e.preventDefault(); // Prevent default browser validation popup
     
+    console.log('🚀 Form submission started...');
+    
     if (validateForm()) {
+      console.log('✅ Form validation passed');
+      
       // Submit the form to webhook
       const form = document.getElementById('singleForm');
+      const formData = new FormData(form);
+      
+      console.log('📤 Form data being sent:', {
+        firstName: formData.get('firstName'),
+        lastName: formData.get('lastName'),
+        companyName: formData.get('companyName'),
+        companySector: formData.get('companySector'),
+        phone: formData.get('phone'),
+        email: formData.get('email')
+      });
+      
+      console.log('🌐 Submitting to webhook:', form.action);
+      
+      // Show debug message
+      const debugDiv = document.createElement('div');
+      debugDiv.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #4CAF50; color: white; padding: 15px; border-radius: 5px; z-index: 10000; font-family: Arial;';
+      debugDiv.innerHTML = '✅ Form inviato al webhook!<br>Controlla la console per i dettagli.';
+      document.body.appendChild(debugDiv);
+      
+      // Remove debug message after 5 seconds
+      setTimeout(() => {
+        debugDiv.remove();
+      }, 5000);
+      
       form.submit();
       
       // Trigger confetti effect
@@ -2285,6 +2313,18 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(() => {
         window.openThankYouModal();
       }, 100);
+    } else {
+      console.log('❌ Form validation failed');
+      
+      // Show debug message for validation failure
+      const debugDiv = document.createElement('div');
+      debugDiv.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #f44336; color: white; padding: 15px; border-radius: 5px; z-index: 10000; font-family: Arial;';
+      debugDiv.innerHTML = '❌ Validazione fallita!<br>Controlla i campi obbligatori.';
+      document.body.appendChild(debugDiv);
+      
+      setTimeout(() => {
+        debugDiv.remove();
+      }, 3000);
     }
   });
   
@@ -2504,9 +2544,48 @@ document.addEventListener('DOMContentLoaded', function() {
     contactSubmitBtn.addEventListener('click', function(e) {
       e.preventDefault();
       
+      console.log('🚀 Contact form submission started...');
+      
       if (validateContactForm()) {
+        console.log('✅ Contact form validation passed');
+        
+        const formData = new FormData(contactForm);
+        
+        console.log('📤 Contact form data being sent:', {
+          firstName: formData.get('firstName'),
+          lastName: formData.get('lastName'),
+          companyName: formData.get('companyName'),
+          companySector: formData.get('companySector'),
+          phone: formData.get('phone'),
+          email: formData.get('email')
+        });
+        
+        console.log('🌐 Submitting contact form to webhook:', contactForm.action);
+        
+        // Show debug message
+        const debugDiv = document.createElement('div');
+        debugDiv.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #4CAF50; color: white; padding: 15px; border-radius: 5px; z-index: 10000; font-family: Arial;';
+        debugDiv.innerHTML = '✅ Form contatti inviato al webhook!<br>Controlla la console per i dettagli.';
+        document.body.appendChild(debugDiv);
+        
+        setTimeout(() => {
+          debugDiv.remove();
+        }, 5000);
+        
         // Form is valid, submit it
         contactForm.submit();
+      } else {
+        console.log('❌ Contact form validation failed');
+        
+        // Show debug message for validation failure
+        const debugDiv = document.createElement('div');
+        debugDiv.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #f44336; color: white; padding: 15px; border-radius: 5px; z-index: 10000; font-family: Arial;';
+        debugDiv.innerHTML = '❌ Validazione form contatti fallita!<br>Controlla i campi obbligatori.';
+        document.body.appendChild(debugDiv);
+        
+        setTimeout(() => {
+          debugDiv.remove();
+        }, 3000);
       }
     });
   }
