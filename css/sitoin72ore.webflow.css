@@ -15009,7 +15009,7 @@ body {
   background: white;
   border-radius: 1rem;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  max-width: 600px;
+  max-width: 700px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
@@ -15149,8 +15149,8 @@ body {
 /* Responsive Modal */
 @media (max-width: 768px) {
   .modal-content {
-    margin: 0.05rem;
-    max-width: calc(100% - 0.1rem);
+    margin: 0.2rem;
+    max-width: calc(100% - 0.4rem);
   }
   
   .modal-header {
@@ -15384,7 +15384,7 @@ body {
   background: white;
   border-radius: 1rem;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  max-width: 500px;
+  max-width: 600px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
