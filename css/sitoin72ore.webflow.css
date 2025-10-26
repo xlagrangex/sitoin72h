@@ -8970,6 +8970,67 @@ figcaption {
   }
 }
 
+/* Target Audience Box */
+.target-audience-box {
+  width: 100%;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.target-audience-content {
+  text-align: center;
+}
+
+.target-audience-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  font-family: "Darker Grotesque", sans-serif;
+}
+
+.target-audience-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.target-audience-item {
+  font-size: 0.95rem;
+  color: #555;
+  font-weight: 500;
+  font-family: "Darker Grotesque", sans-serif;
+}
+
+/* Mobile responsive for target audience box */
+@media (max-width: 768px) {
+  .target-audience-box {
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+  }
+  
+  .target-audience-title {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .target-audience-list {
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .target-audience-item {
+    font-size: 0.9rem;
+  }
+}
+
 /* Mobile fix for "Un processo trasparente e un lancio rapidissimo" */
 @media (max-width: 768px) {
   .heading-11._3-3.white {
