@@ -15145,6 +15145,49 @@ body {
   outline-offset: 2px;
 }
 
+/* Hero Title Responsive Breakpoints */
+@media (max-width: 1400px) {
+  .hero-title-main {
+    font-size: 6.8rem !important;
+    line-height: 85% !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hero-title-main {
+    font-size: 6.2rem !important;
+    line-height: 85% !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero-title-main {
+    font-size: 5.6rem !important;
+    line-height: 85% !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-title-main {
+    font-size: 5.2rem !important;
+    line-height: 85% !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .hero-title-main {
+    font-size: 4.8rem !important;
+    line-height: 85% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title-main {
+    font-size: 4.2rem !important;
+    line-height: 85% !important;
+  }
+}
+
 /* Responsive Modal */
 @media (max-width: 768px) {
   .modal-content {
