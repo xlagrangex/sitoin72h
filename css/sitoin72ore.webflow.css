@@ -15149,8 +15149,8 @@ body {
 /* Responsive Modal */
 @media (max-width: 768px) {
   .modal-content {
-    margin: 0.2rem;
-    max-width: calc(100% - 0.4rem);
+    margin: 0.1rem;
+    max-width: calc(100% - 0.2rem);
   }
   
   .modal-header {
