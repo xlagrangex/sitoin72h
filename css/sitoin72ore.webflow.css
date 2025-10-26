@@ -15474,9 +15474,9 @@ body {
 
 .submit-btn {
   font-family: "Darker Grotesque", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  padding: 1.2rem 3rem;
+  padding: 1.5rem 3rem;
   border: none;
   border-radius: 0.8rem;
   cursor: pointer;
@@ -15486,6 +15486,15 @@ body {
   color: white;
   box-shadow: 0 6px 20px rgba(26, 64, 136, 0.3);
   margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 60px;
+}
+
+.submit-btn svg {
+  flex-shrink: 0;
 }
 
 .submit-btn:hover {
@@ -15532,6 +15541,13 @@ body {
   border-radius: 0.5rem;
   transition: all 0.3s ease;
   background: white;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.secondary-link svg {
+  flex-shrink: 0;
 }
 
 .secondary-link:hover {
@@ -15617,9 +15633,10 @@ body {
   }
   
   .submit-btn {
-    font-size: 1.1rem;
-    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    padding: 1.3rem 2rem;
     margin: 0.8rem 0;
+    min-height: 55px;
   }
   
   .secondary-options {
