@@ -15404,7 +15404,7 @@ body {
 .form-row {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
 }
 
 .form-field {
@@ -15584,7 +15584,7 @@ body {
   .form-row {
     flex-direction: column;
     gap: 0.8rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
   }
   
   .form-field label {
