@@ -2306,10 +2306,17 @@ document.addEventListener('DOMContentLoaded', function() {
       
       console.log('🌐 Submitting to webhook:', form.action);
       
+      // Send to both webhooks
+      const n8nWebhook = form.action;
+      const googleWebhook = 'https://script.google.com/macros/s/AKfycbz-QlUpOxgfFhtTqB03lMeCBV5S9GSAIES-B5SykuuXmHa_4qgu2QlDxJLAV4JTMkzdFQ/exec';
+      
+      console.log('📡 Sending to n8n webhook:', n8nWebhook);
+      console.log('📡 Sending to Google Sheets webhook:', googleWebhook);
+      
       // Show debug message
       const debugDiv = document.createElement('div');
       debugDiv.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #4CAF50; color: white; padding: 15px; border-radius: 5px; z-index: 10000; font-family: Arial;';
-      debugDiv.innerHTML = '✅ Form inviato al webhook!<br>Controlla la console per i dettagli.';
+      debugDiv.innerHTML = '✅ Form inviato a entrambi i webhook!<br>• n8n webhook<br>• Google Sheets<br>Controlla la console per i dettagli.';
       document.body.appendChild(debugDiv);
       
       // Remove debug message after 5 seconds
@@ -2317,22 +2324,29 @@ document.addEventListener('DOMContentLoaded', function() {
         debugDiv.remove();
       }, 5000);
       
-      // Try to submit with error handling
+      // Try to submit to n8n webhook
       try {
         form.submit();
-        console.log('📡 Form submit() called successfully');
+        console.log('📡 n8n webhook submit() called successfully');
       } catch (error) {
-        console.error('❌ Error submitting form:', error);
-        
-        // Show error message
-        const errorDiv = document.createElement('div');
-        errorDiv.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #f44336; color: white; padding: 15px; border-radius: 5px; z-index: 10000; font-family: Arial;';
-        errorDiv.innerHTML = '❌ Errore nell\'invio del form!<br>Controlla la console per i dettagli.';
-        document.body.appendChild(errorDiv);
-        
-        setTimeout(() => {
-          errorDiv.remove();
-        }, 5000);
+        console.error('❌ Error submitting to n8n webhook:', error);
+      }
+      
+      // Send to Google Sheets webhook via fetch
+      try {
+        fetch(googleWebhook, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+          console.log('✅ Google Sheets webhook response:', data);
+        })
+        .catch(error => {
+          console.error('❌ Error sending to Google Sheets webhook:', error);
+        });
+      } catch (error) {
+        console.error('❌ Error with Google Sheets fetch:', error);
       }
       
       // Trigger confetti effect
@@ -2594,32 +2608,46 @@ document.addEventListener('DOMContentLoaded', function() {
         
         console.log('🌐 Submitting contact form to webhook:', contactForm.action);
         
+        // Send to both webhooks
+        const n8nWebhook = contactForm.action;
+        const googleWebhook = 'https://script.google.com/macros/s/AKfycbz-QlUpOxgfFhtTqB03lMeCBV5S9GSAIES-B5SykuuXmHa_4qgu2QlDxJLAV4JTMkzdFQ/exec';
+        
+        console.log('📡 Sending contact form to n8n webhook:', n8nWebhook);
+        console.log('📡 Sending contact form to Google Sheets webhook:', googleWebhook);
+        
         // Show debug message
         const debugDiv = document.createElement('div');
         debugDiv.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #4CAF50; color: white; padding: 15px; border-radius: 5px; z-index: 10000; font-family: Arial;';
-        debugDiv.innerHTML = '✅ Form contatti inviato al webhook!<br>Controlla la console per i dettagli.';
+        debugDiv.innerHTML = '✅ Form contatti inviato a entrambi i webhook!<br>• n8n webhook<br>• Google Sheets<br>Controlla la console per i dettagli.';
         document.body.appendChild(debugDiv);
         
         setTimeout(() => {
           debugDiv.remove();
         }, 5000);
         
-        // Try to submit with error handling
+        // Try to submit to n8n webhook
         try {
           contactForm.submit();
-          console.log('📡 Contact form submit() called successfully');
+          console.log('📡 Contact form n8n webhook submit() called successfully');
         } catch (error) {
-          console.error('❌ Error submitting contact form:', error);
-          
-          // Show error message
-          const errorDiv = document.createElement('div');
-          errorDiv.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #f44336; color: white; padding: 15px; border-radius: 5px; z-index: 10000; font-family: Arial;';
-          errorDiv.innerHTML = '❌ Errore nell\'invio del form contatti!<br>Controlla la console per i dettagli.';
-          document.body.appendChild(errorDiv);
-          
-          setTimeout(() => {
-            errorDiv.remove();
-          }, 5000);
+          console.error('❌ Error submitting contact form to n8n webhook:', error);
+        }
+        
+        // Send to Google Sheets webhook via fetch
+        try {
+          fetch(googleWebhook, {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.text())
+          .then(data => {
+            console.log('✅ Contact form Google Sheets webhook response:', data);
+          })
+          .catch(error => {
+            console.error('❌ Error sending contact form to Google Sheets webhook:', error);
+          });
+        } catch (error) {
+          console.error('❌ Error with contact form Google Sheets fetch:', error);
         }
       } else {
         console.log('❌ Contact form validation failed');
