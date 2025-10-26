@@ -1985,8 +1985,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
+  // Prevent form submission and browser validation popup
+  const singleForm = document.getElementById('singleForm');
+  singleForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+  });
+  
   // Submit form
-  submitBtn.addEventListener('click', function() {
+  submitBtn.addEventListener('click', function(e) {
+    e.preventDefault(); // Prevent default browser validation popup
+    
     if (validateForm()) {
       // Close contact modal
       closeModalFunc();
@@ -1995,8 +2003,6 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(() => {
         window.openThankYouModal();
       }, 300);
-    } else {
-      alert('Per favore compila tutti i campi richiesti e accetta la privacy policy.');
     }
   });
   
