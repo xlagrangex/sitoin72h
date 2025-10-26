@@ -8973,10 +8973,10 @@ figcaption {
 /* Target Audience Box */
 .target-audience-box {
   width: 100%;
-  background: #000;
+  background: #1a1a1a;
   border: 1px solid #333;
   border-radius: 12px;
-  padding: 1.5rem 2rem;
+  padding: 2rem 2.5rem;
   margin: 2rem 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
@@ -8986,10 +8986,10 @@ figcaption {
 }
 
 .target-audience-title {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 700;
   color: #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   font-family: "Darker Grotesque", sans-serif;
 }
 
@@ -8997,37 +8997,37 @@ figcaption {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .target-audience-item {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   color: #ccc;
-  font-weight: 500;
+  font-weight: 600;
   font-family: "Darker Grotesque", sans-serif;
 }
 
 /* Mobile responsive for target audience box */
 @media (max-width: 768px) {
   .target-audience-box {
-    padding: 1rem 1.5rem;
+    padding: 1.5rem 2rem;
     margin: 1.5rem 0;
     border-radius: 8px;
   }
   
   .target-audience-title {
-    font-size: 1rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
   }
   
   .target-audience-list {
-    gap: 1rem;
+    gap: 1.5rem;
     flex-direction: column;
     align-items: center;
   }
   
   .target-audience-item {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
   }
 }
 
