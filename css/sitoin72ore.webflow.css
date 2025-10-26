@@ -8861,6 +8861,17 @@ figcaption {
   padding-right: 0;
 }
 
+/* Mobile: Single column layout for pricing bullets */
+@media (max-width: 768px) {
+  .pricing_blocks .grid-3 {
+    grid-template-columns: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
 .text-block-13, .text-block-14, .text-block-15 {
   color: var(--_colors---primary--white);
 }
