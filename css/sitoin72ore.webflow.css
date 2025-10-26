@@ -5001,7 +5001,7 @@ figcaption {
   display: flex;
 }
 
-.form-field {
+.form-field-old {
   color: #ffffffe6;
   -webkit-appearance: none;
   appearance: none;
@@ -5013,18 +5013,18 @@ figcaption {
   padding: 12px 20px;
 }
 
-.form-field::placeholder {
+.form-field-old::placeholder {
   color: #fff6;
 }
 
-.form-field.select-field {
+.form-field-old.select-field {
   background-image: url('../images/arrow-icon.svg');
   background-position: 97%;
   background-repeat: no-repeat;
   background-size: 28px 28px;
 }
 
-.form-field.textarea {
+.form-field-old.textarea {
   min-height: 172px;
 }
 
