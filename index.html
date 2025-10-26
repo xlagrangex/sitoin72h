@@ -2026,7 +2026,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeThankYouModal = document.getElementById('closeThankYouModal');
     const loadingAnimation = document.querySelector('.loading-animation');
     const thankYouMessage = document.querySelector('.thank-you-message');
-    const secondaryOptions = document.querySelectorAll('.secondary-options')[1]; // Second instance in thank you modal
+    const secondaryOptions = document.querySelector('#thankYouModal .secondary-options');
     
     // Function to open thank you modal
     function openThankYouModal() {
