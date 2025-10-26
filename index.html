@@ -1918,7 +1918,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(new FormData(form));
     params.append("page_url", window.location.href);
     try {
-      await fetch("https://capassogionata.app.n8n.cloud/webhook/de9a7e63-c90d-4ffa-90df-8fb0799b1607", {
+      await fetch("https://capassogionata.app.n8n.cloud/webhook-test/de9a7e63-c90d-4ffa-90df-8fb0799b1607", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: params,
