@@ -15367,9 +15367,9 @@ body {
 .modal-subtitle {
   font-family: "Darker Grotesque", sans-serif;
   font-size: 1.1rem;
-  color: #333;
+  color: #000;
   margin: 0 0 0.8rem 0;
-  line-height: 1.4;
+  line-height: 1.2;
   font-weight: 600;
 }
 
@@ -15610,6 +15610,7 @@ body {
   .modal-subtitle {
     font-size: 1rem;
     margin: 0 0 0.6rem 0;
+    line-height: 1.1;
   }
   
   .modal-body {
