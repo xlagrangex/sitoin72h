@@ -1784,11 +1784,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Clear all errors when resetting
     clearAllErrors();
+    
+    // Reset submit attempt flag
+    hasAttemptedSubmit = false;
   }
   
   // Enhanced form validation with visual feedback
   function validateForm() {
     let isValid = true;
+    
+    // Mark that user has attempted to submit
+    hasAttemptedSubmit = true;
     
     // Clear previous errors
     clearAllErrors();
@@ -1882,25 +1888,31 @@ document.addEventListener('DOMContentLoaded', function() {
     return phoneRegex.test(phone);
   }
   
-  // Real-time validation on input
+  // Real-time validation on input (only after first submit attempt)
+  let hasAttemptedSubmit = false;
+  
   function setupRealTimeValidation() {
     const inputs = document.querySelectorAll('input[required], select[required]');
     const checkbox = document.getElementById('privacy');
     
     inputs.forEach(input => {
       input.addEventListener('blur', function() {
-        validateField(this);
+        if (hasAttemptedSubmit) {
+          validateField(this);
+        }
       });
       
       input.addEventListener('input', function() {
-        if (this.classList.contains('error')) {
+        if (hasAttemptedSubmit && this.classList.contains('error')) {
           validateField(this);
         }
       });
     });
     
     checkbox.addEventListener('change', function() {
-      validateField(this);
+      if (hasAttemptedSubmit) {
+        validateField(this);
+      }
     });
   }
   
