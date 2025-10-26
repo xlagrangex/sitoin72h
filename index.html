@@ -1962,11 +1962,30 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Confetti effect using canvas-confetti library
   function createConfettiEffect() {
+    // Set high z-index for confetti canvas
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.zIndex = '99999';
+    document.body.appendChild(canvas);
+    
+    // Create confetti with custom canvas
     confetti({
       particleCount: 200,
       spread: 170,
       origin: { y: 0.4 }
     });
+    
+    // Remove canvas after animation
+    setTimeout(() => {
+      if (canvas.parentNode) {
+        canvas.parentNode.removeChild(canvas);
+      }
+    }, 5000);
   }
   
   // Add click listeners to all buttons that should open the modal
