@@ -15476,7 +15476,7 @@ body {
 
 .submit-btn {
   font-family: "DM Grotesque", sans-serif;
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   padding: 1.5rem 3rem;
   border: none;
@@ -15635,7 +15635,7 @@ body {
   }
   
   .submit-btn {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     padding: 1.3rem 2rem;
     margin: 0.8rem 0;
     min-height: 55px;
