@@ -2125,6 +2125,217 @@ document.addEventListener('DOMContentLoaded', function() {
       openCalendarModal();
     });
   }
+  
+  // Contact Form Validation Logic (same as popup)
+  const contactForm = document.getElementById('contactSingleForm');
+  const contactFirstName = document.getElementById('contactFirstName');
+  const contactLastName = document.getElementById('contactLastName');
+  const contactCompanyName = document.getElementById('contactCompanyName');
+  const contactCompanySector = document.getElementById('contactCompanySector');
+  const contactPhone = document.getElementById('contactPhone');
+  const contactEmail = document.getElementById('contactEmail');
+  const contactPrivacy = document.getElementById('contactPrivacy');
+  let contactHasAttemptedSubmit = false;
+  
+  // Contact form validation functions
+  function validateContactForm() {
+    let isValid = true;
+    
+    // Mark that user has attempted to submit
+    contactHasAttemptedSubmit = true;
+    
+    // Clear previous errors
+    clearContactErrors();
+    
+    // Validate first name
+    if (!contactFirstName.value.trim()) {
+      showContactError('contactFirstName', 'Il nome è obbligatorio');
+      isValid = false;
+    }
+    
+    // Validate last name
+    if (!contactLastName.value.trim()) {
+      showContactError('contactLastName', 'Il cognome è obbligatorio');
+      isValid = false;
+    }
+    
+    // Validate company name
+    if (!contactCompanyName.value.trim()) {
+      showContactError('contactCompanyName', 'Il nome azienda è obbligatorio');
+      isValid = false;
+    }
+    
+    // Validate company sector
+    if (!contactCompanySector.value.trim()) {
+      showContactError('contactCompanySector', 'Il settore azienda è obbligatorio');
+      isValid = false;
+    }
+    
+    // Validate phone
+    if (!contactPhone.value.trim()) {
+      showContactError('contactPhone', 'Il numero di telefono è obbligatorio');
+      isValid = false;
+    } else if (!isValidPhone(contactPhone.value)) {
+      showContactError('contactPhone', 'Inserisci un numero di telefono valido');
+      isValid = false;
+    }
+    
+    // Validate email
+    if (!contactEmail.value.trim()) {
+      showContactError('contactEmail', 'L\'email è obbligatoria');
+      isValid = false;
+    } else if (!isValidEmail(contactEmail.value)) {
+      showContactError('contactEmail', 'Inserisci un\'email valida');
+      isValid = false;
+    }
+    
+    // Validate privacy
+    if (!contactPrivacy.checked) {
+      showContactError('contactPrivacy', 'Devi accettare la privacy policy');
+      isValid = false;
+    }
+    
+    return isValid;
+  }
+  
+  function showContactError(fieldId, message) {
+    const field = document.getElementById(fieldId);
+    const errorElement = document.getElementById(fieldId + 'Error');
+    
+    if (field) {
+      field.classList.add('error');
+    }
+    
+    if (errorElement) {
+      errorElement.textContent = message;
+      errorElement.style.display = 'block';
+    }
+  }
+  
+  function clearContactErrors() {
+    const errorElements = contactForm.querySelectorAll('.error-message');
+    errorElements.forEach(element => {
+      element.style.display = 'none';
+    });
+    
+    const errorFields = contactForm.querySelectorAll('.error');
+    errorFields.forEach(field => {
+      field.classList.remove('error');
+    });
+  }
+  
+  function setupContactRealTimeValidation() {
+    const fields = [contactFirstName, contactLastName, contactCompanyName, contactCompanySector, contactPhone, contactEmail, contactPrivacy];
+    
+    fields.forEach(field => {
+      if (field) {
+        field.addEventListener('blur', function() {
+          if (contactHasAttemptedSubmit) {
+            validateContactField(field);
+          }
+        });
+        
+        field.addEventListener('input', function() {
+          if (contactHasAttemptedSubmit) {
+            validateContactField(field);
+          }
+        });
+      }
+    });
+  }
+  
+  function validateContactField(field) {
+    const fieldId = field.id;
+    let isValid = true;
+    let message = '';
+    
+    switch(fieldId) {
+      case 'contactFirstName':
+        if (!field.value.trim()) {
+          isValid = false;
+          message = 'Il nome è obbligatorio';
+        }
+        break;
+      case 'contactLastName':
+        if (!field.value.trim()) {
+          isValid = false;
+          message = 'Il cognome è obbligatorio';
+        }
+        break;
+      case 'contactCompanyName':
+        if (!field.value.trim()) {
+          isValid = false;
+          message = 'Il nome azienda è obbligatorio';
+        }
+        break;
+      case 'contactCompanySector':
+        if (!field.value.trim()) {
+          isValid = false;
+          message = 'Il settore azienda è obbligatorio';
+        }
+        break;
+      case 'contactPhone':
+        if (!field.value.trim()) {
+          isValid = false;
+          message = 'Il numero di telefono è obbligatorio';
+        } else if (!isValidPhone(field.value)) {
+          isValid = false;
+          message = 'Inserisci un numero di telefono valido';
+        }
+        break;
+      case 'contactEmail':
+        if (!field.value.trim()) {
+          isValid = false;
+          message = 'L\'email è obbligatoria';
+        } else if (!isValidEmail(field.value)) {
+          isValid = false;
+          message = 'Inserisci un\'email valida';
+        }
+        break;
+      case 'contactPrivacy':
+        if (!field.checked) {
+          isValid = false;
+          message = 'Devi accettare la privacy policy';
+        }
+        break;
+    }
+    
+    if (isValid) {
+      field.classList.remove('error');
+      const errorElement = document.getElementById(fieldId + 'Error');
+      if (errorElement) {
+        errorElement.style.display = 'none';
+      }
+    } else {
+      showContactError(fieldId, message);
+    }
+  }
+  
+  // Setup contact form validation
+  setupContactRealTimeValidation();
+  
+  // Contact form submit handler
+  const contactSubmitBtn = contactForm.querySelector('input[type="submit"]');
+  if (contactSubmitBtn) {
+    contactSubmitBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      if (validateContactForm()) {
+        // Form is valid, submit it
+        contactForm.submit();
+      }
+    });
+  }
+  
+  // Prevent browser validation popup for contact form
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    if (validateContactForm()) {
+      // Form is valid, submit it
+      contactForm.submit();
+    }
+  });
 });
 
   // Thank You Modal functionality
