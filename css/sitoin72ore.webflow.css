@@ -15014,38 +15014,41 @@ body {
 }
 
 .contact-option {
-  padding: 1rem;
+  padding: 1.5rem;
   border: 2px solid #f0f0f0;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   transition: all 0.3s ease;
   cursor: pointer;
   background: white;
+  min-height: 80px;
 }
 
 .contact-option:hover {
   border-color: var(--_colors---primary--black);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
   background: #fafafa;
 }
 
 .option-content {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   width: 100%;
+  height: 100%;
 }
 
 .option-icon {
-  font-size: 2rem;
+  font-size: 2.5rem;
   flex-shrink: 0;
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #f8f9fa;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
 }
 
 .option-text {
@@ -15055,19 +15058,20 @@ body {
 
 .contact-option h3 {
   font-family: "Darker Grotesque", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 700;
   color: var(--_colors---primary--black);
-  margin: 0 0 0.3rem 0;
-  line-height: 1.2;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
 }
 
 .contact-option p {
   font-family: "Darker Grotesque", sans-serif;
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: #666;
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.4;
+  font-weight: 500;
 }
 
 /* Specific styles for different options */
@@ -15081,6 +15085,18 @@ body {
 
 #whatsappOption:hover .option-icon {
   background: #25d366;
+}
+
+/* Active state for better user feedback */
+.contact-option:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus state for accessibility */
+.contact-option:focus {
+  outline: 3px solid rgba(26, 64, 136, 0.3);
+  outline-offset: 2px;
 }
 
 /* Responsive Modal */
@@ -15103,31 +15119,34 @@ body {
   }
   
   .contact-options {
-    gap: 0.6rem;
-  }
-  
-  .contact-option {
-    padding: 0.8rem;
-  }
-  
-  .option-content {
     gap: 0.8rem;
   }
   
+  .contact-option {
+    padding: 1.2rem;
+    min-height: 70px;
+  }
+  
+  .option-content {
+    gap: 1rem;
+  }
+  
   .option-icon {
-    font-size: 1.6rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    font-size: 2rem;
+    width: 3rem;
+    height: 3rem;
   }
   
   .contact-option h3 {
-    font-size: 1rem;
-    margin: 0 0 0.2rem 0;
+    font-size: 1.2rem;
+    margin: 0 0 0.3rem 0;
+    font-weight: 700;
   }
   
   .contact-option p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin: 0;
+    font-weight: 500;
   }
 }
 

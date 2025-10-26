@@ -94,7 +94,7 @@
       </div>
       <div class="modal-body">
         <div class="contact-options">
-          <div class="contact-option" id="contactFormOption">
+          <div class="contact-option" id="contactFormOption" tabindex="0" role="button" aria-label="Compila il form di contatto">
             <div class="option-content">
               <div class="option-icon">📞</div>
               <div class="option-text">
@@ -104,7 +104,7 @@
             </div>
           </div>
           
-          <div class="contact-option" id="calendarOption">
+          <div class="contact-option" id="calendarOption" tabindex="0" role="button" aria-label="Fissa un appuntamento tramite calendario">
             <div class="option-content">
               <div class="option-icon">📅</div>
               <div class="option-text">
@@ -114,7 +114,7 @@
             </div>
           </div>
           
-          <div class="contact-option" id="whatsappOption">
+          <div class="contact-option" id="whatsappOption" tabindex="0" role="button" aria-label="Scrivici su WhatsApp">
             <div class="option-content">
               <div class="option-icon">💬</div>
               <div class="option-text">
@@ -1658,28 +1658,48 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Handle contact form option click
-  contactFormOption.addEventListener('click', function() {
+  // Function to handle contact form action
+  function handleContactForm() {
     closeModalFunc();
     // Scroll to contact section
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
-  });
+  }
   
-  // Handle calendar option click
-  calendarOption.addEventListener('click', function() {
+  // Function to handle calendar action
+  function handleCalendar() {
     closeModalFunc();
     // You can add calendar integration here
     alert('Funzionalità calendario in arrivo! Per ora contattaci via WhatsApp.');
-  });
+  }
   
-  // Handle WhatsApp option click
-  whatsappOption.addEventListener('click', function() {
+  // Function to handle WhatsApp action
+  function handleWhatsApp() {
     closeModalFunc();
     // Open WhatsApp
     window.open('https://wa.me/393792473044?text=Ciao%2C%20vorrei%20maggiori%20informazioni%20sul%20vostro%20servizio%20di%20sviluppo%20siti%20web%20in%2072%20ore.', '_blank');
+  }
+  
+  // Add click and keyboard event listeners for all options
+  [contactFormOption, calendarOption, whatsappOption].forEach((option, index) => {
+    // Click events
+    option.addEventListener('click', function() {
+      if (index === 0) handleContactForm();
+      else if (index === 1) handleCalendar();
+      else if (index === 2) handleWhatsApp();
+    });
+    
+    // Keyboard events (Enter and Space)
+    option.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (index === 0) handleContactForm();
+        else if (index === 1) handleCalendar();
+        else if (index === 2) handleWhatsApp();
+      }
+    });
   });
 });
 </script>
