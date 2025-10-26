@@ -14714,6 +14714,13 @@ figcaption {
   display: none;
 }
 
+.sticky-bar-left-mobile,
+.sticky-bar-right-mobile,
+.spots-counter-mobile,
+.whatsapp-button-mobile {
+  display: none;
+}
+
 .whatsapp-button {
   text-decoration: none;
   display: flex;
@@ -14942,6 +14949,11 @@ body {
     margin-bottom: 0.2rem;
   }
   
+  .sticky-bar-left,
+  .sticky-bar-right {
+    display: none;
+  }
+  
   .sticky-bar-second-row {
     display: flex;
     width: 100%;
@@ -14951,7 +14963,7 @@ body {
     gap: 0.5rem;
   }
   
-  .sticky-bar-left {
+  .sticky-bar-left-mobile {
     position: static;
     flex: 0.4;
     justify-content: flex-start;
@@ -14959,7 +14971,7 @@ body {
     align-items: center;
   }
   
-  .sticky-bar-right {
+  .sticky-bar-right-mobile {
     position: static;
     flex: 0.6;
     justify-content: flex-end;
@@ -14984,7 +14996,7 @@ body {
     justify-content: center;
   }
   
-  .spots-counter {
+  .spots-counter-mobile {
     font-size: 0.75rem;
     gap: 0.15rem;
     flex-wrap: nowrap;
@@ -14992,6 +15004,22 @@ body {
     background-color: rgba(0, 0, 0, 0.05);
     padding: 0.4rem 0.6rem;
     border-radius: 0.4rem;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  
+  .whatsapp-button-mobile {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: #25d366;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 3px 15px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
     width: 100%;
     justify-content: center;
   }
