@@ -1758,9 +1758,9 @@ document.addEventListener('DOMContentLoaded', function() {
   function updateSpotsCounter() {
     let currentSpots = parseInt(spotsElement.textContent);
     
-    // Se siamo a 2, ricomincia da un numero casuale tra 8-12
+    // Se siamo a 2, fermati qui (non scendere più)
     if (currentSpots <= 2) {
-      currentSpots = Math.floor(Math.random() * 5) + 8; // 8-12
+      currentSpots = 2;
     } else {
       // Diminuisci di 1 con probabilità del 30% ogni 10 secondi
       if (Math.random() < 0.3) {
