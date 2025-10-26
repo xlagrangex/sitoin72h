@@ -173,17 +173,17 @@
       </div>
       <div class="modal-body">
         <!-- Single Page Form -->
-        <div class="single-form" id="singleForm">
+        <form class="single-form" id="singleForm" action="https://capassogionata.app.n8n.cloud/webhook/de9a7e63-c90d-4ffa-90df-8fb0799b1607" method="POST">
           
           <div class="form-row">
             <div class="form-field half-width">
               <label for="firstName">Nome *</label>
-              <input type="text" id="firstName" placeholder="Il tuo nome" required>
+              <input type="text" id="firstName" name="firstName" placeholder="Il tuo nome" required>
               <div class="error-message" id="firstNameError">Il nome è obbligatorio</div>
             </div>
             <div class="form-field half-width">
               <label for="lastName">Cognome *</label>
-              <input type="text" id="lastName" placeholder="Il tuo cognome" required>
+              <input type="text" id="lastName" name="lastName" placeholder="Il tuo cognome" required>
               <div class="error-message" id="lastNameError">Il cognome è obbligatorio</div>
             </div>
           </div>
@@ -191,12 +191,12 @@
           <div class="form-row">
             <div class="form-field half-width">
               <label for="companyName">Nome Azienda *</label>
-              <input type="text" id="companyName" placeholder="Nome della tua azienda" required>
+              <input type="text" id="companyName" name="companyName" placeholder="Nome della tua azienda" required>
               <div class="error-message" id="companyNameError">Il nome azienda è obbligatorio</div>
             </div>
             <div class="form-field half-width">
               <label for="companySector">Settore Azienda *</label>
-              <input type="text" id="companySector" placeholder="Es: Tecnologia, Commercio, Servizi..." required>
+              <input type="text" id="companySector" name="companySector" placeholder="Es: Tecnologia, Commercio, Servizi..." required>
               <div class="error-message" id="companySectorError">Il settore azienda è obbligatorio</div>
             </div>
           </div>
@@ -204,12 +204,12 @@
           <div class="form-row">
             <div class="form-field half-width">
               <label for="phone">Numero di Telefono *</label>
-              <input type="tel" id="phone" placeholder="+39 123 456 7890" required>
+              <input type="tel" id="phone" name="phone" placeholder="+39 123 456 7890" required>
               <div class="error-message" id="phoneError">Il numero di telefono è obbligatorio</div>
             </div>
             <div class="form-field half-width">
               <label for="email">Email *</label>
-              <input type="email" id="email" placeholder="tua@email.com" required>
+              <input type="email" id="email" name="email" placeholder="tua@email.com" required>
               <div class="error-message" id="emailError">L'email è obbligatoria e deve essere valida</div>
             </div>
           </div>
@@ -229,6 +229,7 @@
             </svg>
             Invia Richiesta Ora
           </button>
+        </form>
           
           <!-- Secondary Options -->
           <div class="step-separator">
@@ -1500,19 +1501,19 @@
               </div>
               <div class="contact_form-wrap-2">
                 <div class="contact_form-block w-form">
-                  <form id="wf-form-Contact-forn" name="wf-form-Contact-forn" data-name="Contact forn" method="post" class="contact_form" data-wf-page-id="68a58549f5506784c29cbbbe" data-wf-element-id="0da8ece8-61be-79b5-4f88-8147ee1cbf1c">
+                  <form id="wf-form-Contact-forn" name="wf-form-Contact-forn" data-name="Contact forn" method="post" class="contact_form" action="https://capassogionata.app.n8n.cloud/webhook/de9a7e63-c90d-4ffa-90df-8fb0799b1607" data-wf-page-id="68a58549f5506784c29cbbbe" data-wf-element-id="0da8ece8-61be-79b5-4f88-8147ee1cbf1c">
                     <!-- Single Page Form -->
                     <div class="single-form" id="contactSingleForm">
                       
                       <div class="form-row">
                         <div class="form-field half-width">
                           <label for="contactFirstName">Nome *</label>
-                          <input type="text" id="contactFirstName" placeholder="Il tuo nome" required>
+                          <input type="text" id="contactFirstName" name="firstName" placeholder="Il tuo nome" required>
                           <div class="error-message" id="contactFirstNameError">Il nome è obbligatorio</div>
                         </div>
                         <div class="form-field half-width">
                           <label for="contactLastName">Cognome *</label>
-                          <input type="text" id="contactLastName" placeholder="Il tuo cognome" required>
+                          <input type="text" id="contactLastName" name="lastName" placeholder="Il tuo cognome" required>
                           <div class="error-message" id="contactLastNameError">Il cognome è obbligatorio</div>
                         </div>
                       </div>
@@ -1520,12 +1521,12 @@
                       <div class="form-row">
                         <div class="form-field half-width">
                           <label for="contactCompanyName">Nome Azienda *</label>
-                          <input type="text" id="contactCompanyName" placeholder="Nome della tua azienda" required>
+                          <input type="text" id="contactCompanyName" name="companyName" placeholder="Nome della tua azienda" required>
                           <div class="error-message" id="contactCompanyNameError">Il nome azienda è obbligatorio</div>
                         </div>
                         <div class="form-field half-width">
                           <label for="contactCompanySector">Settore Azienda *</label>
-                          <input type="text" id="contactCompanySector" placeholder="Es: Tecnologia, Commercio, Servizi..." required>
+                          <input type="text" id="contactCompanySector" name="companySector" placeholder="Es: Tecnologia, Commercio, Servizi..." required>
                           <div class="error-message" id="contactCompanySectorError">Il settore azienda è obbligatorio</div>
                         </div>
                       </div>
@@ -1533,12 +1534,12 @@
                       <div class="form-row">
                         <div class="form-field half-width">
                           <label for="contactPhone">Numero di Telefono *</label>
-                          <input type="tel" id="contactPhone" placeholder="Il tuo numero di telefono" required>
+                          <input type="tel" id="contactPhone" name="phone" placeholder="Il tuo numero di telefono" required>
                           <div class="error-message" id="contactPhoneError">Il numero di telefono è obbligatorio</div>
                         </div>
                         <div class="form-field half-width">
                           <label for="contactEmail">Email *</label>
-                          <input type="email" id="contactEmail" placeholder="La tua email" required>
+                          <input type="email" id="contactEmail" name="email" placeholder="La tua email" required>
                           <div class="error-message" id="contactEmailError">L'email è obbligatoria</div>
                         </div>
                       </div>
