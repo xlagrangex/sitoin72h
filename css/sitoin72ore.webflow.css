@@ -8973,12 +8973,12 @@ figcaption {
 /* Target Audience Box */
 .target-audience-box {
   width: 100%;
-  background: #1a1a1a;
-  border: 1px solid #333;
+  background: #fff;
+  border: 2px solid #000;
   border-radius: 12px;
-  padding: 2rem 2.5rem;
+  padding: 1.2rem 1.5rem;
   margin: 2rem 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .target-audience-content {
@@ -8988,8 +8988,8 @@ figcaption {
 .target-audience-title {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #fff;
-  margin-bottom: 1.5rem;
+  color: #000;
+  margin-bottom: 1rem;
   font-family: "Darker Grotesque", sans-serif;
 }
 
@@ -8997,12 +8997,12 @@ figcaption {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .target-audience-item {
   font-size: 1.1rem;
-  color: #ccc;
+  color: #333;
   font-weight: 600;
   font-family: "Darker Grotesque", sans-serif;
 }
@@ -9010,20 +9010,40 @@ figcaption {
 /* Mobile responsive for target audience box */
 @media (max-width: 768px) {
   .target-audience-box {
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.2rem;
     margin: 1.5rem 0;
     border-radius: 8px;
+    border-width: 1px;
   }
   
   .target-audience-title {
-    font-size: 1.5rem;
-    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
   }
   
   .target-audience-list {
-    gap: 1.5rem;
+    gap: 1rem;
     flex-direction: column;
     align-items: center;
+  }
+  
+  .target-audience-item {
+    font-size: 1rem;
+  }
+}
+
+/* Tablet responsive for target audience box */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .target-audience-box {
+    padding: 1.4rem 1.8rem;
+  }
+  
+  .target-audience-title {
+    font-size: 1.6rem;
+  }
+  
+  .target-audience-list {
+    gap: 1.3rem;
   }
   
   .target-audience-item {
