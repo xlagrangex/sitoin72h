@@ -34,6 +34,15 @@
 </style>
 </head>
 <body class="body">
+  <!-- Top Marquee -->
+  <div class="top-marquee">
+    <div class="marquee-content">
+      <span class="marquee-item">🔒 Nessun rischio: paghi solo il 50% all'inizio, saldo a lavoro ultimato</span>
+      <span class="marquee-item">⭐ 50+ aziende hanno già scelto Sitoin72ore™</span>
+      <span class="marquee-item">💸 Prezzo fisso 800€ invece di 2000€ – Promo Black Friday</span>
+    </div>
+  </div>
+  
   <!-- Sticky Bar -->
   <div class="sticky-bar">
     <div class="sticky-bar-content">
@@ -1962,30 +1971,22 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Confetti effect using canvas-confetti library
   function createConfettiEffect() {
-    // Set high z-index for confetti canvas
-    const canvas = document.createElement('canvas');
-    canvas.style.position = 'fixed';
-    canvas.style.top = '0';
-    canvas.style.left = '0';
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
-    canvas.style.pointerEvents = 'none';
-    canvas.style.zIndex = '99999';
-    document.body.appendChild(canvas);
-    
-    // Create confetti with custom canvas
+    // Create confetti first
     confetti({
       particleCount: 200,
       spread: 170,
       origin: { y: 0.4 }
     });
     
-    // Remove canvas after animation
+    // Then find and modify the canvas z-index
     setTimeout(() => {
-      if (canvas.parentNode) {
-        canvas.parentNode.removeChild(canvas);
-      }
-    }, 5000);
+      const canvases = document.querySelectorAll('canvas');
+      canvases.forEach(canvas => {
+        if (canvas.style.position === 'fixed') {
+          canvas.style.zIndex = '99999';
+        }
+      });
+    }, 10);
   }
   
   // Add click listeners to all buttons that should open the modal

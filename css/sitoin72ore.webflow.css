@@ -14660,6 +14660,49 @@ figcaption {
   filter: saturate(1.2) brightness(1.05);
 }
 
+/* Top Marquee */
+.top-marquee {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
+  color: white;
+  overflow: hidden;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee-scroll 30s linear infinite;
+  white-space: nowrap;
+}
+
+.marquee-item {
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-right: 4rem;
+  flex-shrink: 0;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Adjust body padding to account for marquee */
+body {
+  padding-top: 40px;
+}
+
 /* Sticky Bar */
 .sticky-bar {
   position: fixed;
@@ -14878,6 +14921,20 @@ figcaption {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  /* Top Marquee Mobile */
+  .top-marquee {
+    height: 35px;
+  }
+  
+  .marquee-item {
+    font-size: 0.8rem;
+    margin-right: 3rem;
+  }
+  
+  body {
+    padding-top: 35px;
+  }
+  
   .sticky-bar {
     height: 50px;
   }
