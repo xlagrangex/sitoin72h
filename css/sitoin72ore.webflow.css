@@ -8864,11 +8864,18 @@ figcaption {
 /* Mobile: Single column layout for pricing bullets */
 @media (max-width: 768px) {
   .pricing_blocks .grid-3 {
-    grid-template-columns: 1fr;
-    grid-column-gap: 0;
-    grid-row-gap: 20px;
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    grid-column-gap: 0 !important;
+    grid-row-gap: 0 !important;
     padding-left: 10px;
     padding-right: 10px;
+  }
+  
+  .pricing_blocks .grid-3 > div {
+    width: 100% !important;
+    margin-bottom: 20px;
   }
   
   /* Add divider lines every 6 items on mobile */
