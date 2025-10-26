@@ -14657,3 +14657,124 @@ figcaption {
   display: inline-block;
   filter: saturate(1.2) brightness(1.05);
 }
+
+/* Sticky Bar */
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: rgba(23, 23, 23, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 -4px 40px rgba(0, 0, 0, 0.4), 0 -2px 20px rgba(26, 64, 136, 0.2);
+}
+
+.sticky-bar-content {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticky-bar-button {
+  background-image: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
+  background-size: 200% 200%;
+  color: var(--_colors---primary--white);
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  padding: 1rem 3rem 1.5rem 3rem;
+  border-radius: 0.75rem 0.75rem 0 0;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(-8px);
+  height: 80px;
+  min-width: 60%;
+  max-width: 70%;
+  white-space: nowrap;
+  filter: saturate(1.1) brightness(1.05);
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+.sticky-bar-button:hover {
+  background-image: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  filter: saturate(1.2) brightness(1.1);
+}
+
+.sticky-bar-button:active {
+  background-image: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
+  transform: translateY(-8px) scale(0.98);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+  filter: saturate(1.05) brightness(1.02);
+}
+
+.sticky-bar-button-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sticky-bar {
+    height: 50px;
+  }
+  
+  .sticky-bar-content {
+    padding: 0 0.75rem;
+  }
+  
+  .sticky-bar-button {
+    font-size: 1.4rem;
+    padding: 0.8rem 1.5rem 1.2rem 1.5rem;
+    height: 75px;
+    transform: translateY(-5px);
+    min-width: 70%;
+    max-width: 80%;
+  }
+  
+  .sticky-bar-button:hover {
+    transform: translateY(-5px) scale(1.05);
+  }
+  
+  .sticky-bar-button:active {
+    transform: translateY(-5px) scale(0.98);
+  }
+}
+
+/* Add bottom padding to body to account for sticky bar */
+body {
+  padding-bottom: 50px;
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
