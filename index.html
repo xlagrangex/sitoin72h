@@ -101,43 +101,29 @@
         <button class="modal-close" id="closeModal">&times;</button>
       </div>
       <div class="modal-body">
-        <!-- Multi-Step Form -->
-        <div class="multi-step-form" id="multiStepForm">
+        <!-- Single Page Form -->
+        <div class="single-form" id="singleForm">
           
-          <!-- Step 1: Nome e Cognome -->
-          <div class="form-step active" id="step1">
-            <h3 class="step-title">Step 1 di 3</h3>
-            <p class="step-subtitle">Iniziamo con le tue informazioni personali</p>
-            
-            <div class="form-group">
-              <input type="text" id="firstName" placeholder="Nome" required>
-              <input type="text" id="lastName" placeholder="Cognome" required>
+          <div class="form-row">
+            <div class="form-field half-width">
+              <label for="firstName">Nome *</label>
+              <input type="text" id="firstName" placeholder="Il tuo nome" required>
             </div>
-            
-            <button class="next-btn" id="nextBtn1">Continua</button>
-            
-            <!-- Secondary Options -->
-            <div class="step-separator">
-              <div class="separator-line"></div>
-              <span class="separator-text">oppure</span>
-              <div class="separator-line"></div>
-            </div>
-            
-            <div class="secondary-options">
-              <a href="#" class="secondary-link" id="calendarStep1">📅 Fissa appuntamento</a>
-              <a href="#" class="secondary-link" id="whatsappStep1">💬 WhatsApp</a>
+            <div class="form-field half-width">
+              <label for="lastName">Cognome *</label>
+              <input type="text" id="lastName" placeholder="Il tuo cognome" required>
             </div>
           </div>
           
-          <!-- Step 2: Azienda -->
-          <div class="form-step" id="step2">
-            <h3 class="step-title">Step 2 di 3</h3>
-            <p class="step-subtitle">Raccontaci della tua azienda</p>
-            
-            <div class="form-group">
-              <input type="text" id="companyName" placeholder="Nome azienda" required>
+          <div class="form-row">
+            <div class="form-field half-width">
+              <label for="companyName">Nome Azienda *</label>
+              <input type="text" id="companyName" placeholder="Nome della tua azienda" required>
+            </div>
+            <div class="form-field half-width">
+              <label for="companySector">Settore Azienda *</label>
               <select id="companySector" required>
-                <option value="">Settore azienda</option>
+                <option value="">Seleziona settore</option>
                 <option value="tecnologia">Tecnologia</option>
                 <option value="commercio">Commercio</option>
                 <option value="servizi">Servizi</option>
@@ -148,59 +134,39 @@
                 <option value="altro">Altro</option>
               </select>
             </div>
-            
-            <div class="step-buttons">
-              <button class="prev-btn" id="prevBtn2">Indietro</button>
-              <button class="next-btn" id="nextBtn2">Continua</button>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-field half-width">
+              <label for="phone">Numero di Telefono *</label>
+              <input type="tel" id="phone" placeholder="+39 123 456 7890" required>
             </div>
-            
-            <!-- Secondary Options -->
-            <div class="step-separator">
-              <div class="separator-line"></div>
-              <span class="separator-text">oppure</span>
-              <div class="separator-line"></div>
-            </div>
-            
-            <div class="secondary-options">
-              <a href="#" class="secondary-link" id="calendarStep2">📅 Fissa appuntamento</a>
-              <a href="#" class="secondary-link" id="whatsappStep2">💬 WhatsApp</a>
+            <div class="form-field half-width">
+              <label for="email">Email *</label>
+              <input type="email" id="email" placeholder="tua@email.com" required>
             </div>
           </div>
           
-          <!-- Step 3: Contatti e Privacy -->
-          <div class="form-step" id="step3">
-            <h3 class="step-title">Step 3 di 3</h3>
-            <p class="step-subtitle">Ultimi dettagli per contattarti</p>
-            
-            <div class="form-group">
-              <input type="tel" id="phone" placeholder="Numero di telefono" required>
-              <input type="email" id="email" placeholder="Email" required>
-            </div>
-            
-            <div class="privacy-section">
-              <label class="privacy-checkbox">
-                <input type="checkbox" id="privacy" required>
-                <span class="checkmark"></span>
-                <span class="privacy-text">Accetto il trattamento dei dati personali secondo la <a href="#" class="privacy-link">Privacy Policy</a></span>
-              </label>
-            </div>
-            
-            <div class="step-buttons">
-              <button class="prev-btn" id="prevBtn3">Indietro</button>
-              <button class="submit-btn" id="submitBtn">🚀 Richiedi Preventivo</button>
-            </div>
-            
-            <!-- Secondary Options -->
-            <div class="step-separator">
-              <div class="separator-line"></div>
-              <span class="separator-text">oppure</span>
-              <div class="separator-line"></div>
-            </div>
-            
-            <div class="secondary-options">
-              <a href="#" class="secondary-link" id="calendarStep3">📅 Fissa appuntamento</a>
-              <a href="#" class="secondary-link" id="whatsappStep3">💬 WhatsApp</a>
-            </div>
+          <div class="privacy-section">
+            <label class="privacy-checkbox">
+              <input type="checkbox" id="privacy" required>
+              <span class="checkmark"></span>
+              <span class="privacy-text">Accetto il trattamento dei dati personali secondo la <a href="#" class="privacy-link">Privacy Policy</a></span>
+            </label>
+          </div>
+          
+          <button class="submit-btn" id="submitBtn">🚀 Richiedi Preventivo Gratuito</button>
+          
+          <!-- Secondary Options -->
+          <div class="step-separator">
+            <div class="separator-line"></div>
+            <span class="separator-text">oppure</span>
+            <div class="separator-line"></div>
+          </div>
+          
+          <div class="secondary-options">
+            <a href="#" class="secondary-link" id="calendarLink">📅 Fissa appuntamento</a>
+            <a href="#" class="secondary-link" id="whatsappLink">💬 WhatsApp</a>
           </div>
           
         </div>
@@ -1698,11 +1664,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeModal = document.getElementById('closeModal');
   
   // Form elements
-  const steps = document.querySelectorAll('.form-step');
-  const nextBtn1 = document.getElementById('nextBtn1');
-  const nextBtn2 = document.getElementById('nextBtn2');
-  const prevBtn2 = document.getElementById('prevBtn2');
-  const prevBtn3 = document.getElementById('prevBtn3');
   const submitBtn = document.getElementById('submitBtn');
   
   // Form inputs
@@ -1714,11 +1675,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const email = document.getElementById('email');
   const privacy = document.getElementById('privacy');
   
-  // Secondary links for all steps
-  const calendarLinks = document.querySelectorAll('[id^="calendarStep"]');
-  const whatsappLinks = document.querySelectorAll('[id^="whatsappStep"]');
-  
-  let currentStep = 1;
+  // Secondary links
+  const calendarLink = document.getElementById('calendarLink');
+  const whatsappLink = document.getElementById('whatsappLink');
   
   // Function to open modal
   function openModal() {
@@ -1735,11 +1694,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Function to reset form
   function resetForm() {
-    currentStep = 1;
-    steps.forEach((step, index) => {
-      step.classList.toggle('active', index === 0);
-    });
-    
     // Clear all inputs
     [firstName, lastName, companyName, companySector, phone, email, privacy].forEach(input => {
       if (input) input.value = '';
@@ -1747,26 +1701,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Function to show step
-  function showStep(stepNumber) {
-    steps.forEach((step, index) => {
-      step.classList.toggle('active', index === stepNumber - 1);
-    });
-    currentStep = stepNumber;
-  }
-  
-  // Function to validate step
-  function validateStep(stepNumber) {
-    switch(stepNumber) {
-      case 1:
-        return firstName.value.trim() !== '' && lastName.value.trim() !== '';
-      case 2:
-        return companyName.value.trim() !== '' && companySector.value !== '';
-      case 3:
-        return phone.value.trim() !== '' && email.value.trim() !== '' && privacy.checked;
-      default:
-        return false;
-    }
+  // Function to validate form
+  function validateForm() {
+    return firstName.value.trim() !== '' && 
+           lastName.value.trim() !== '' && 
+           companyName.value.trim() !== '' && 
+           companySector.value !== '' && 
+           phone.value.trim() !== '' && 
+           email.value.trim() !== '' && 
+           privacy.checked;
   }
   
   // Add click listeners to all buttons that should open the modal
@@ -1795,34 +1738,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Step navigation
-  nextBtn1.addEventListener('click', function() {
-    if (validateStep(1)) {
-      showStep(2);
-    } else {
-      alert('Per favore compila tutti i campi richiesti.');
-    }
-  });
-  
-  nextBtn2.addEventListener('click', function() {
-    if (validateStep(2)) {
-      showStep(3);
-    } else {
-      alert('Per favore compila tutti i campi richiesti.');
-    }
-  });
-  
-  prevBtn2.addEventListener('click', function() {
-    showStep(1);
-  });
-  
-  prevBtn3.addEventListener('click', function() {
-    showStep(2);
-  });
-  
   // Submit form
   submitBtn.addEventListener('click', function() {
-    if (validateStep(3)) {
+    if (validateForm()) {
       // Here you would normally send the data to your server
       alert('Grazie! Ti contatteremo presto per il tuo sito web in 72 ore!');
       closeModalFunc();
@@ -1838,20 +1756,16 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // Secondary options handlers
-  calendarLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      closeModalFunc();
-      alert('Funzionalità calendario in arrivo! Per ora contattaci via WhatsApp.');
-    });
+  calendarLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    closeModalFunc();
+    alert('Funzionalità calendario in arrivo! Per ora contattaci via WhatsApp.');
   });
   
-  whatsappLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      closeModalFunc();
-      window.open('https://wa.me/393792473044?text=Ciao%2C%20vorrei%20maggiori%20informazioni%20sul%20vostro%20servizio%20di%20sviluppo%20siti%20web%20in%2072%20ore.', '_blank');
-    });
+  whatsappLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    closeModalFunc();
+    window.open('https://wa.me/393792473044?text=Ciao%2C%20vorrei%20maggiori%20informazioni%20sul%20vostro%20servizio%20di%20sviluppo%20siti%20web%20in%2072%20ore.', '_blank');
   });
 });
 </script>

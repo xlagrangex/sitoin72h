@@ -15413,114 +15413,83 @@ body {
   padding: 2rem;
 }
 
-/* Multi-Step Form Styles */
-.multi-step-form {
+/* Single Page Form Styles */
+.single-form {
   position: relative;
 }
 
-.form-step {
-  display: none;
-  animation: fadeIn 0.3s ease-in-out;
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.form-step.active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.step-title {
-  font-family: "Darker Grotesque", sans-serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--_colors---primary--black);
-  margin: 0 0 0.5rem 0;
-  text-align: center;
-}
-
-.step-subtitle {
-  font-family: "Darker Grotesque", sans-serif;
-  font-size: 0.9rem;
-  color: #666;
-  margin: 0 0 2rem 0;
-  text-align: center;
-}
-
-.form-group {
+.form-field {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2rem;
 }
 
-.form-group input,
-.form-group select {
-  font-family: "Darker Grotesque", sans-serif;
-  font-size: 1rem;
-  padding: 1rem;
-  border: 2px solid #e5e5e5;
-  border-radius: 0.5rem;
-  background: white;
-  transition: all 0.3s ease;
+.form-field.half-width {
+  flex: 1;
 }
 
-.form-group input:focus,
-.form-group select:focus {
-  outline: none;
-  border-color: var(--_colors---primary--black);
-  box-shadow: 0 0 0 3px rgba(26, 64, 136, 0.1);
-}
-
-.form-group input::placeholder {
-  color: #999;
-}
-
-.step-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.next-btn,
-.prev-btn,
-.submit-btn {
+.form-field label {
   font-family: "Darker Grotesque", sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  padding: 1rem 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.form-field input,
+.form-field select {
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 1.1rem;
+  padding: 1.2rem;
+  border: 2px solid #ddd;
+  border-radius: 0.6rem;
+  background: white;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  outline: none;
+  border-color: #1a4088;
+  box-shadow: 0 0 0 3px rgba(26, 64, 136, 0.15);
+  background: #fafafa;
+}
+
+.form-field input::placeholder {
+  color: #888;
+  font-weight: 400;
+}
+
+.form-field select {
+  color: #333;
+  cursor: pointer;
+}
+
+.submit-btn {
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 1.5rem 3rem;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.8rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  min-width: 120px;
-}
-
-.next-btn,
-.submit-btn {
+  width: 100%;
   background: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
   color: white;
-  box-shadow: 0 4px 15px rgba(26, 64, 136, 0.3);
+  box-shadow: 0 6px 20px rgba(26, 64, 136, 0.3);
+  margin: 2rem 0;
 }
 
-.next-btn:hover,
 .submit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(26, 64, 136, 0.4);
-}
-
-.prev-btn {
-  background: #f8f9fa;
-  color: #666;
-  border: 2px solid #e5e5e5;
-}
-
-.prev-btn:hover {
-  background: #e9ecef;
-  border-color: #999;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(26, 64, 136, 0.4);
 }
 
 /* Step Separator */
@@ -15636,36 +15605,26 @@ body {
     padding: 1.5rem;
   }
   
-  .step-title {
-    font-size: 1.1rem;
-  }
-  
-  .step-subtitle {
-    font-size: 0.85rem;
-  }
-  
-  .form-group {
-    gap: 0.8rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .form-group input,
-  .form-group select {
-    font-size: 0.9rem;
-    padding: 0.8rem;
-  }
-  
-  .step-buttons {
+  .form-row {
     flex-direction: column;
     gap: 0.8rem;
+    margin-bottom: 1rem;
   }
   
-  .next-btn,
-  .prev-btn,
-  .submit-btn {
+  .form-field label {
     font-size: 0.9rem;
-    padding: 0.8rem 1.5rem;
-    min-width: auto;
+  }
+  
+  .form-field input,
+  .form-field select {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  
+  .submit-btn {
+    font-size: 1.1rem;
+    padding: 1.2rem 2rem;
+    margin: 1.5rem 0;
   }
   
   .secondary-options {
