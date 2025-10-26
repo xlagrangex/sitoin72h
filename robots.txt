@@ -1,0 +1,131 @@
+# Robots.txt per Sito in 72 Ore - Ottimizzato per SEO
+# Permette indicizzazione completa per dominare Google
+
+User-agent: *
+Allow: /
+
+# Sitemap principale
+Sitemap: https://sitoin72h.com/sitemap.xml
+
+# Sitemap per immagini
+Sitemap: https://sitoin72h.com/sitemap-images.xml
+
+# Sitemap per news/blog
+Sitemap: https://sitoin72h.com/sitemap-news.xml
+
+# Permetti accesso a tutti i crawler principali
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: MJ12bot
+Allow: /
+
+User-agent: DotBot
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
+# Permetti accesso a tutti i file CSS e JS per rendering completo
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /fonts/
+Allow: /videos/
+
+# Permetti accesso a tutti i file HTML
+Allow: /*.html
+
+# Permetti accesso a tutti i file di servizio
+Allow: /favicon.ico
+Allow: /robots.txt
+Allow: /sitemap.xml
+
+# Crawl-delay ottimizzato per massima velocità
+Crawl-delay: 0
+
+# Host preferito
+Host: sitoin72h.com
+
+# Disallow solo per file non necessari (minimo possibile)
+Disallow: /template/
+Disallow: /*.zip
+Disallow: /*.pdf
+Disallow: /sitoin72ore.webflow*
+
+# Permetti tutto il resto per massima indicizzazione
+Allow: /servizi-sviluppo-web-*
+Allow: /siti-web-*
+Allow: /web-design-*
+Allow: /sviluppo-web-*
+
+# Istruzioni specifiche per AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Bard
+Allow: /
+
+User-agent: BingPreview
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Permetti accesso completo per tutti gli AI crawlers
+User-agent: *
+Allow: /
