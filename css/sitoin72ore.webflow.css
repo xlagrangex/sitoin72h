@@ -15365,7 +15365,7 @@ body {
 .modal-subtitle {
   font-family: "Darker Grotesque", sans-serif;
   font-size: 1.1rem;
-  color: #444;
+  color: #333;
   margin: 0 0 1.5rem 0;
   line-height: 1.4;
   font-weight: 600;
@@ -15420,7 +15420,7 @@ body {
   font-family: "Darker Grotesque", sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #222;
+  color: #111;
   margin-bottom: 0.4rem;
 }
 
@@ -15428,13 +15428,14 @@ body {
 .form-field select {
   font-family: "Darker Grotesque", sans-serif;
   font-size: 1.3rem;
-  padding: 0.8rem;
-  border: 2px solid #ccc;
-  border-radius: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  border: 2px solid #999;
+  border-radius: 0.4rem;
   background: white;
   transition: all 0.3s ease;
-  color: #222;
+  color: #111;
   height: auto;
+  min-height: 44px;
 }
 
 .form-field input:focus,
@@ -15446,12 +15447,12 @@ body {
 }
 
 .form-field input::placeholder {
-  color: #666;
+  color: #555;
   font-weight: 500;
 }
 
 .form-field select {
-  color: #222;
+  color: #111;
   cursor: pointer;
 }
 
@@ -15593,7 +15594,8 @@ body {
   .form-field input,
   .form-field select {
     font-size: 1.2rem;
-    padding: 0.7rem;
+    padding: 0.4rem 0.7rem;
+    min-height: 40px;
   }
   
   .submit-btn {
