@@ -15148,8 +15148,8 @@ body {
 /* Responsive Modal */
 @media (max-width: 768px) {
   .modal-content {
-    margin: 1rem;
-    max-width: calc(100% - 2rem);
+    margin: 0.5rem;
+    max-width: calc(100% - 1rem);
   }
   
   .modal-header {
@@ -15834,10 +15834,10 @@ body {
   }
   
   .submit-btn {
-    font-size: 1.4rem;
-    padding: 1.3rem 2rem;
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
     margin: 0.8rem 0;
-    min-height: 55px;
+    min-height: 50px;
   }
   
   .secondary-options {
