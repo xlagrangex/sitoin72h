@@ -8852,8 +8852,23 @@ figcaption {
   padding-right: 0;
 }
 
+/* Pricing grid-3 layout */
+.pricing_blocks .grid-3 {
+  grid-column-gap: 50px;
+  grid-row-gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-left: 20px;
+  padding-right: 0;
+}
+
 .text-block-13, .text-block-14, .text-block-15 {
   color: var(--_colors---primary--white);
+}
+
+.text-block-15 {
+  font-size: 1.4rem !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
 }
 
 .div-block-10156 {
