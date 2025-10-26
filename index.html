@@ -2012,10 +2012,10 @@ document.addEventListener('DOMContentLoaded', function() {
       // Close contact modal
       closeModalFunc();
       
-      // Open thank you modal after a short delay
+      // Open thank you modal after confetti has time to start (shorter delay)
       setTimeout(() => {
         window.openThankYouModal();
-      }, 300);
+      }, 100);
     }
   });
   
@@ -2051,12 +2051,12 @@ document.addEventListener('DOMContentLoaded', function() {
       thankYouMessage.style.display = 'none';
       secondaryOptions.style.display = 'none';
       
-      // Simulate processing time (2 seconds)
+      // Simulate processing time (much shorter - 0.8 seconds)
       setTimeout(() => {
         loadingAnimation.style.display = 'none';
         thankYouMessage.style.display = 'block';
         secondaryOptions.style.display = 'flex';
-      }, 2000);
+      }, 800);
     }
     
     // Function to close thank you modal
