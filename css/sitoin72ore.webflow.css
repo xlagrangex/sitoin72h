@@ -8870,6 +8870,18 @@ figcaption {
     padding-left: 10px;
     padding-right: 10px;
   }
+  
+  /* Add divider lines every 6 items on mobile */
+  .pricing_blocks .grid-3 > div:nth-child(6n) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .pricing_blocks .grid-3 > div:nth-child(6n) .list {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 20px;
+  }
 }
 
 .text-block-13, .text-block-14, .text-block-15 {
