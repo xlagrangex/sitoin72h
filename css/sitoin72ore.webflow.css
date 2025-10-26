@@ -5912,7 +5912,7 @@ figcaption {
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 100px;
+  padding-top: 120px;
   padding-bottom: 60px;
   display: flex;
 }
@@ -13815,7 +13815,7 @@ figcaption {
   .section-2 {
     flex-flow: column;
     min-height: 1000px;
-    padding-top: 90px;
+    padding-top: 110px;
     padding-bottom: 60px;
   }
 
