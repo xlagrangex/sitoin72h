@@ -2261,7 +2261,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Prevent form submission and browser validation popup
   const singleForm = document.getElementById('singleForm');
   singleForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+    if (!validateForm()) {
+      e.preventDefault();
+    }
   });
   
   // Submit form
@@ -2269,6 +2271,10 @@ document.addEventListener('DOMContentLoaded', function() {
     e.preventDefault(); // Prevent default browser validation popup
     
     if (validateForm()) {
+      // Submit the form to webhook
+      const form = document.getElementById('singleForm');
+      form.submit();
+      
       // Trigger confetti effect
       createConfettiEffect();
       
@@ -2305,7 +2311,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Contact Form Validation Logic (same as popup)
-  const contactForm = document.getElementById('contactSingleForm');
+  const contactForm = document.getElementById('wf-form-Contact-forn');
   const contactFirstName = document.getElementById('contactFirstName');
   const contactLastName = document.getElementById('contactLastName');
   const contactCompanyName = document.getElementById('contactCompanyName');
@@ -2507,11 +2513,8 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Prevent browser validation popup for contact form
   contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    if (validateContactForm()) {
-      // Form is valid, submit it
-      contactForm.submit();
+    if (!validateContactForm()) {
+      e.preventDefault();
     }
   });
 });
