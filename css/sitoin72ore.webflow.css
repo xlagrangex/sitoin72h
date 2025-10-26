@@ -15014,67 +15014,73 @@ body {
 }
 
 .contact-option {
-  text-align: center;
-  padding: 0.8rem;
+  padding: 1rem;
   border: 2px solid #f0f0f0;
   border-radius: 0.5rem;
   transition: all 0.3s ease;
+  cursor: pointer;
+  background: white;
 }
 
 .contact-option:hover {
   border-color: var(--_colors---primary--black);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  background: #fafafa;
+}
+
+.option-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
 }
 
 .option-icon {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+}
+
+.option-text {
+  flex: 1;
+  text-align: left;
 }
 
 .contact-option h3 {
   font-family: "Darker Grotesque", sans-serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--_colors---primary--black);
   margin: 0 0 0.3rem 0;
+  line-height: 1.2;
 }
 
 .contact-option p {
   font-family: "Darker Grotesque", sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: #666;
-  margin: 0 0 0.8rem 0;
+  margin: 0;
+  line-height: 1.3;
 }
 
-.option-button {
-  background-image: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
-  color: white;
-  font-family: "Darker Grotesque", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 0.6rem 1.5rem;
-  border: none;
-  border-radius: 0.4rem;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(26, 64, 136, 0.3);
+/* Specific styles for different options */
+#contactFormOption:hover .option-icon {
+  background: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
 }
 
-.option-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(26, 64, 136, 0.4);
+#calendarOption:hover .option-icon {
+  background: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
 }
 
-.whatsapp-btn {
-  background-color: #25d366 !important;
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3) !important;
-}
-
-.whatsapp-btn:hover {
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
+#whatsappOption:hover .option-icon {
+  background: #25d366;
 }
 
 /* Responsive Modal */
@@ -15101,27 +15107,27 @@ body {
   }
   
   .contact-option {
-    padding: 0.6rem;
+    padding: 0.8rem;
+  }
+  
+  .option-content {
+    gap: 0.8rem;
   }
   
   .option-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.3rem;
+    font-size: 1.6rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
   
   .contact-option h3 {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin: 0 0 0.2rem 0;
   }
   
   .contact-option p {
-    font-size: 0.75rem;
-    margin: 0 0 0.6rem 0;
-  }
-  
-  .option-button {
     font-size: 0.8rem;
-    padding: 0.5rem 1.2rem;
+    margin: 0;
   }
 }
 

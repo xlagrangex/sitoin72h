@@ -94,25 +94,34 @@
       </div>
       <div class="modal-body">
         <div class="contact-options">
-          <div class="contact-option">
-            <div class="option-icon">📞</div>
-            <h3>Lasciaci i tuoi dati contatto</h3>
-            <p>Ti richiamiamo noi!</p>
-            <button class="option-button" id="contactFormBtn">Compila il form</button>
+          <div class="contact-option" id="contactFormOption">
+            <div class="option-content">
+              <div class="option-icon">📞</div>
+              <div class="option-text">
+                <h3>Lasciaci i tuoi dati contatto</h3>
+                <p>Ti richiamiamo noi!</p>
+              </div>
+            </div>
           </div>
           
-          <div class="contact-option">
-            <div class="option-icon">📅</div>
-            <h3>Fissa direttamente un appuntamento</h3>
-            <p>Tramite calendario</p>
-            <button class="option-button" id="calendarBtn">Scegli data e ora</button>
+          <div class="contact-option" id="calendarOption">
+            <div class="option-content">
+              <div class="option-icon">📅</div>
+              <div class="option-text">
+                <h3>Fissa direttamente un appuntamento</h3>
+                <p>Tramite calendario</p>
+              </div>
+            </div>
           </div>
           
-          <div class="contact-option">
-            <div class="option-icon">💬</div>
-            <h3>Scrivici su WhatsApp</h3>
-            <p>Risposta immediata</p>
-            <a href="https://wa.me/393792473044?text=Ciao%2C%20vorrei%20maggiori%20informazioni%20sul%20vostro%20servizio%20di%20sviluppo%20siti%20web%20in%2072%20ore." class="option-button whatsapp-btn" target="_blank">Scrivi su WhatsApp</a>
+          <div class="contact-option" id="whatsappOption">
+            <div class="option-content">
+              <div class="option-icon">💬</div>
+              <div class="option-text">
+                <h3>Scrivici su WhatsApp</h3>
+                <p>Risposta immediata</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1607,8 +1616,9 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('contactModal');
   const closeModal = document.getElementById('closeModal');
-  const contactFormBtn = document.getElementById('contactFormBtn');
-  const calendarBtn = document.getElementById('calendarBtn');
+  const contactFormOption = document.getElementById('contactFormOption');
+  const calendarOption = document.getElementById('calendarOption');
+  const whatsappOption = document.getElementById('whatsappOption');
   
   // Function to open modal
   function openModal() {
@@ -1648,8 +1658,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Handle contact form button
-  contactFormBtn.addEventListener('click', function() {
+  // Handle contact form option click
+  contactFormOption.addEventListener('click', function() {
     closeModalFunc();
     // Scroll to contact section
     const contactSection = document.getElementById('contact');
@@ -1658,11 +1668,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Handle calendar button
-  calendarBtn.addEventListener('click', function() {
+  // Handle calendar option click
+  calendarOption.addEventListener('click', function() {
     closeModalFunc();
     // You can add calendar integration here
     alert('Funzionalità calendario in arrivo! Per ora contattaci via WhatsApp.');
+  });
+  
+  // Handle WhatsApp option click
+  whatsappOption.addEventListener('click', function() {
+    closeModalFunc();
+    // Open WhatsApp
+    window.open('https://wa.me/393792473044?text=Ciao%2C%20vorrei%20maggiori%20informazioni%20sul%20vostro%20servizio%20di%20sviluppo%20siti%20web%20in%2072%20ore.', '_blank');
   });
 });
 </script>
