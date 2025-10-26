@@ -15907,7 +15907,8 @@ body {
   /* Contact form mobile adjustments */
   #contactSingleForm {
     max-width: 100%;
-    margin: 0;
+    margin: 0 auto;
+    padding: 0 1rem;
   }
   
   /* Mobile form adjustments - First 2 rows in 2 columns */
