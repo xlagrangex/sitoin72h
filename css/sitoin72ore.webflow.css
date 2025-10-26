@@ -15734,13 +15734,13 @@ body {
 .secondary-link {
   font-family: "Darker Grotesque", sans-serif;
   font-size: 0.8rem;
-  color: #666;
+  color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  border: 1px solid #e5e5e5;
+  border: 2px solid #000;
   border-radius: 0.5rem;
   transition: all 0.3s ease;
-  background: white;
+  background: #000;
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -15748,12 +15748,13 @@ body {
 
 .secondary-link svg {
   flex-shrink: 0;
+  fill: white;
 }
 
 .secondary-link:hover {
-  background: #f8f9fa;
-  border-color: #999;
-  color: #333;
+  background: #333;
+  border-color: #333;
+  color: white;
 }
 
 /* Privacy Section */
