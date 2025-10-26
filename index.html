@@ -171,11 +171,14 @@
           </div>
           
           <div class="secondary-options">
-            <a href="#" class="secondary-link" id="formLink">
+            <a href="#" class="secondary-link" id="calendarLink">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+                <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
               </svg>
-              Compila form
+              Fissa appuntamento
             </a>
             <a href="#" class="secondary-link" id="whatsappLink">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1692,7 +1695,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const privacy = document.getElementById('privacy');
   
   // Secondary links
-  const formLink = document.getElementById('formLink');
+  const calendarLink = document.getElementById('calendarLink');
   const whatsappLink = document.getElementById('whatsappLink');
   
   // Function to open modal
@@ -1772,10 +1775,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // Secondary options handlers
-  formLink.addEventListener('click', function(e) {
+  calendarLink.addEventListener('click', function(e) {
     e.preventDefault();
-    // Form is already visible, just scroll to top
-    modal.scrollTop = 0;
+    closeModalFunc();
+    openCalendarModal();
   });
   
   whatsappLink.addEventListener('click', function(e) {
