@@ -46,12 +46,12 @@
         </div>
       </div>
       <div class="sticky-bar-center">
-        <a href="#contact" class="sticky-bar-button">
+        <a href="#" class="sticky-bar-button" onclick="return false;">
           <span class="sticky-bar-button-text">🚀 Richiedi il tuo sito web in 72 ore</span>
         </a>
       </div>
       <div class="sticky-bar-right">
-        <a href="https://wa.me/393792473044?text=Ciao%2C%20vorrei%20maggiori%20informazioni%20sul%20vostro%20servizio%20di%20sviluppo%20siti%20web%20in%2072%20ore." class="whatsapp-button" target="_blank">
+        <a href="#" class="whatsapp-button" onclick="return false;">
           <svg class="whatsapp-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" fill="white"/>
           </svg>
@@ -71,7 +71,7 @@
           </div>
         </div>
         <div class="sticky-bar-right-mobile">
-          <a href="https://wa.me/393792473044?text=Ciao%2C%20vorrei%20maggiori%20informazioni%20sul%20vostro%20servizio%20di%20sviluppo%20siti%20web%20in%2072%20ore." class="whatsapp-button-mobile" target="_blank">
+          <a href="#" class="whatsapp-button-mobile" onclick="return false;">
             <svg class="whatsapp-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" fill="white"/>
             </svg>
@@ -80,6 +80,40 @@
               <span class="whatsapp-text-line2">Scrivici su WhatsApp</span>
             </div>
           </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Popup Modal -->
+  <div id="contactModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Come preferisci procedere?</h2>
+        <button class="modal-close" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="contact-options">
+          <div class="contact-option">
+            <div class="option-icon">📞</div>
+            <h3>Lasciaci i tuoi dati contatto</h3>
+            <p>Ti richiamiamo noi!</p>
+            <button class="option-button" id="contactFormBtn">Compila il form</button>
+          </div>
+          
+          <div class="contact-option">
+            <div class="option-icon">📅</div>
+            <h3>Fissa direttamente un appuntamento</h3>
+            <p>Tramite calendario</p>
+            <button class="option-button" id="calendarBtn">Scegli data e ora</button>
+          </div>
+          
+          <div class="contact-option">
+            <div class="option-icon">💬</div>
+            <h3>Scrivici su WhatsApp</h3>
+            <p>Risposta immediata</p>
+            <a href="https://wa.me/393792473044?text=Ciao%2C%20vorrei%20maggiori%20informazioni%20sul%20vostro%20servizio%20di%20sviluppo%20siti%20web%20in%2072%20ore." class="option-button whatsapp-btn" target="_blank">Scrivi su WhatsApp</a>
+          </div>
         </div>
       </div>
     </div>
@@ -1567,5 +1601,68 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Aggiorna il mese ogni ora (nel caso cambi giorno)
   setInterval(updateMonth, 3600000);
+});
+
+// Modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('contactModal');
+  const closeModal = document.getElementById('closeModal');
+  const contactFormBtn = document.getElementById('contactFormBtn');
+  const calendarBtn = document.getElementById('calendarBtn');
+  
+  // Function to open modal
+  function openModal() {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  }
+  
+  // Function to close modal
+  function closeModalFunc() {
+    modal.classList.remove('show');
+    document.body.style.overflow = 'auto'; // Restore scrolling
+  }
+  
+  // Add click listeners to all buttons that should open the modal
+  const buttonsToOpenModal = document.querySelectorAll('.sticky-bar-button, .whatsapp-button, .whatsapp-button-mobile');
+  buttonsToOpenModal.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModal();
+    });
+  });
+  
+  // Close modal events
+  closeModal.addEventListener('click', closeModalFunc);
+  
+  // Close modal when clicking outside
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeModalFunc();
+    }
+  });
+  
+  // Close modal with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('show')) {
+      closeModalFunc();
+    }
+  });
+  
+  // Handle contact form button
+  contactFormBtn.addEventListener('click', function() {
+    closeModalFunc();
+    // Scroll to contact section
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+  
+  // Handle calendar button
+  calendarBtn.addEventListener('click', function() {
+    closeModalFunc();
+    // You can add calendar integration here
+    alert('Funzionalità calendario in arrivo! Per ora contattaci via WhatsApp.');
+  });
 });
 </script>
