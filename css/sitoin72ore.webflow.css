@@ -8882,6 +8882,12 @@ figcaption {
   line-height: 1.3 !important;
 }
 
+/* GSAP Split Text - Reduce font size by 20% */
+.gsap_split_word,
+.gsap_split_letter {
+  font-size: 0.8em !important;
+}
+
 .div-block-10156 {
   grid-column-gap: 20px;
   grid-row-gap: 20px;
