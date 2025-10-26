@@ -15897,19 +15897,23 @@ body {
     padding: 0.5rem;
   }
   
-  /* Mobile form adjustments - First 4 fields in 2 columns */
-  .form-row {
+  /* Mobile form adjustments - Only first 2 fields in 2 columns */
+  .form-row:first-child {
     flex-direction: row;
     gap: 0.5rem;
   }
   
-  .form-field.half-width {
+  .form-row:first-child .form-field.half-width {
     flex: 1;
     width: 48%;
   }
   
-  /* Full width fields on mobile */
-  .form-field:not(.half-width) {
+  /* All other rows full width on mobile */
+  .form-row:not(:first-child) {
+    flex-direction: column;
+  }
+  
+  .form-row:not(:first-child) .form-field {
     width: 100%;
   }
 }
