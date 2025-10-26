@@ -15343,19 +15343,49 @@ body {
 .modal-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 2rem 2rem 1rem 2rem;
   border-bottom: 1px solid #e5e5e5;
 }
 
+.modal-header-content {
+  flex: 1;
+  text-align: center;
+}
+
 .modal-title {
   font-family: "Darker Grotesque", sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--_colors---primary--black);
-  margin: 0;
-  text-align: center;
+  margin: 0 0 0.8rem 0;
   line-height: 1.2;
+}
+
+.modal-subtitle {
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 1rem;
+  color: #666;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.4;
+}
+
+.modal-benefits {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.benefit-item {
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 0.85rem;
+  color: #27ae60;
+  font-weight: 600;
+  background: rgba(39, 174, 96, 0.1);
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  white-space: nowrap;
 }
 
 .modal-close {
@@ -15585,7 +15615,21 @@ body {
   }
   
   .modal-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .modal-subtitle {
+    font-size: 0.9rem;
+    margin: 0 0 1rem 0;
+  }
+  
+  .modal-benefits {
+    gap: 0.8rem;
+  }
+  
+  .benefit-item {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
   }
   
   .modal-body {
