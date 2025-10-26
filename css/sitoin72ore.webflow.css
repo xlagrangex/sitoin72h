@@ -15017,16 +15017,14 @@ body {
   padding: 1.5rem;
   border: 2px solid #f0f0f0;
   border-radius: 0.75rem;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
   background: white;
   min-height: 80px;
 }
 
 .contact-option:hover {
-  border-color: var(--_colors---primary--black);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  border-color: #ddd;
   background: #fafafa;
 }
 
@@ -15039,7 +15037,6 @@ body {
 }
 
 .option-icon {
-  font-size: 2.5rem;
   flex-shrink: 0;
   width: 4rem;
   height: 4rem;
@@ -15048,7 +15045,12 @@ body {
   justify-content: center;
   background: #f8f9fa;
   border-radius: 0.75rem;
-  transition: all 0.3s ease;
+  color: #666;
+}
+
+.option-icon svg {
+  width: 24px;
+  height: 24px;
 }
 
 .option-text {
@@ -15074,23 +15076,10 @@ body {
   font-weight: 500;
 }
 
-/* Specific styles for different options */
-#contactFormOption:hover .option-icon {
-  background: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
-}
-
-#calendarOption:hover .option-icon {
-  background: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
-}
-
-#whatsappOption:hover .option-icon {
-  background: #25d366;
-}
-
 /* Active state for better user feedback */
 .contact-option:active {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transform: scale(0.98);
+  background: #f0f0f0;
 }
 
 /* Focus state for accessibility */
@@ -15132,9 +15121,13 @@ body {
   }
   
   .option-icon {
-    font-size: 2rem;
     width: 3rem;
     height: 3rem;
+  }
+  
+  .option-icon svg {
+    width: 20px;
+    height: 20px;
   }
   
   .contact-option h3 {
