@@ -10090,7 +10090,7 @@ figcaption {
   z-index: 100;
   background-color: #f8f7f3;
   width: 100%;
-  padding-top: .5rem;
+  padding-top: 0;
   position: fixed;
   top: 0;
 }
