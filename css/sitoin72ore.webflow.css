@@ -14976,10 +14976,12 @@ body {
 
 .modal-title {
   font-family: "Darker Grotesque", sans-serif;
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: var(--_colors---primary--black);
   margin: 0;
+  text-align: center;
+  line-height: 1.2;
 }
 
 .modal-close {
@@ -15100,7 +15102,7 @@ body {
   }
   
   .modal-title {
-    font-size: 1.2rem;
+    font-size: 2.2rem;
   }
   
   .modal-body {
