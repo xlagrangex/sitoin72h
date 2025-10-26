@@ -15344,7 +15344,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 2rem 2rem 1rem 2rem;
+  padding: 1.5rem 2rem 0.8rem 2rem;
   border-bottom: 1px solid #e5e5e5;
 }
 
@@ -15358,7 +15358,7 @@ body {
   font-size: 2.2rem;
   font-weight: 700;
   color: var(--_colors---primary--black);
-  margin: 0 0 0.8rem 0;
+  margin: 0 0 0.5rem 0;
   line-height: 1.2;
 }
 
@@ -15366,7 +15366,7 @@ body {
   font-family: "Darker Grotesque", sans-serif;
   font-size: 1.1rem;
   color: #333;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 0.8rem 0;
   line-height: 1.4;
   font-weight: 600;
 }
@@ -15393,7 +15393,7 @@ body {
 }
 
 .modal-body {
-  padding: 2rem;
+  padding: 1rem 2rem 2rem 2rem;
 }
 
 /* Calendar Modal Styles */
@@ -15420,7 +15420,7 @@ body {
 .form-row {
   display: flex;
   gap: 1rem;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.4rem;
 }
 
 .form-field {
@@ -15437,7 +15437,7 @@ body {
   font-size: 1.2rem;
   font-weight: 700;
   color: #111;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .form-field input,
@@ -15476,7 +15476,7 @@ body {
   font-family: "Darker Grotesque", sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
-  padding: 1.5rem 3rem;
+  padding: 1.2rem 3rem;
   border: none;
   border-radius: 0.8rem;
   cursor: pointer;
@@ -15485,7 +15485,7 @@ body {
   background: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
   color: white;
   box-shadow: 0 6px 20px rgba(26, 64, 136, 0.3);
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 .submit-btn:hover {
@@ -15497,7 +15497,7 @@ body {
 .step-separator {
   display: flex;
   align-items: center;
-  margin: 1.5rem 0;
+  margin: 0.8rem 0;
 }
 
 .separator-line {
@@ -15519,6 +15519,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .secondary-link {
@@ -15541,7 +15542,7 @@ body {
 
 /* Privacy Section */
 .privacy-section {
-  margin-bottom: 2rem;
+  margin: 0.8rem 0;
 }
 
 .privacy-checkbox {
@@ -15581,7 +15582,7 @@ body {
   }
   
   .modal-header {
-    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    padding: 1.2rem 1.5rem 0.6rem 1.5rem;
   }
   
   .modal-title {
@@ -15590,21 +15591,22 @@ body {
   
   .modal-subtitle {
     font-size: 1rem;
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.6rem 0;
   }
   
   .modal-body {
-    padding: 1.5rem;
+    padding: 0.8rem 1.5rem 1.5rem 1.5rem;
   }
   
   .form-row {
     flex-direction: column;
     gap: 0.8rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
   }
   
   .form-field label {
     font-size: 1.1rem;
+    margin-bottom: 0.2rem;
   }
   
   .form-field input,
@@ -15616,8 +15618,8 @@ body {
   
   .submit-btn {
     font-size: 1.1rem;
-    padding: 1.2rem 2rem;
-    margin: 1.5rem 0;
+    padding: 1rem 2rem;
+    margin: 0.8rem 0;
   }
   
   .secondary-options {
