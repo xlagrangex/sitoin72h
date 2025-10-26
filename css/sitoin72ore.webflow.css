@@ -15148,8 +15148,8 @@ body {
 /* Responsive Modal */
 @media (max-width: 768px) {
   .modal-content {
-    margin: 0.5rem;
-    max-width: calc(100% - 1rem);
+    margin: 0.2rem;
+    max-width: calc(100% - 0.4rem);
   }
   
   .modal-header {
