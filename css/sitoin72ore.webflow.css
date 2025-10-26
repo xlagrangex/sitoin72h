@@ -14595,3 +14595,65 @@ figcaption {
   font-style: normal;
   font-display: swap;
 }
+
+/* ========================================
+   ACCENT WORDS - Gradient highlights
+   ======================================== */
+
+/* Accent principale - Gradiente blu > magenta > arancione */
+.accent-gradient,
+.accent-primary {
+  background-image: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  display: inline-block;
+  filter: saturate(1.2) brightness(1.05);
+}
+
+/* Accent secondario - Gradiente blu > magenta */
+.accent-secondary {
+  background-image: linear-gradient(135deg, #1a4088, #a51b7f);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  display: inline-block;
+  filter: saturate(1.2) brightness(1.05);
+}
+
+/* Accent con sottolineatura */
+.accent-underline {
+  background-image: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 4px;
+  filter: saturate(1.2) brightness(1.05);
+}
+
+.accent-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-image: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
+  border-radius: 2px;
+}
+
+/* Accent con glow leggero */
+.accent-glow {
+  background-image: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  display: inline-block;
+  filter: saturate(1.2) brightness(1.05);
+}
