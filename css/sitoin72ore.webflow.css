@@ -15488,9 +15488,58 @@ body {
   }
 }
 
-/* Thank You Modal */
-.thank-you-modal {
-  max-width: 500px;
+/* Thank You Modal Secondary Options */
+.thank-you-modal .secondary-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.thank-you-modal .secondary-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2rem;
+  border-radius: 0.8rem;
+  text-decoration: none;
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-height: 60px;
+  border: none;
+  cursor: pointer;
+}
+
+.thank-you-modal .secondary-link:first-child {
+  background: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
+  color: white;
+  box-shadow: 0 4px 15px rgba(26, 64, 136, 0.3);
+}
+
+.thank-you-modal .secondary-link:first-child:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 64, 136, 0.4);
+}
+
+.thank-you-modal .secondary-link:last-child {
+  background: #25d366;
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.thank-you-modal .secondary-link:last-child:hover {
+  background: #20ba5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.thank-you-modal .secondary-link svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
 }
 
 .thank-you-content {
@@ -15858,6 +15907,18 @@ body {
   
   .next-steps {
     font-size: 0.9rem;
+  }
+  
+  /* Thank You Modal Mobile Buttons */
+  .thank-you-modal .secondary-link {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    min-height: 55px;
+  }
+  
+  .thank-you-modal .secondary-link svg {
+    width: 18px;
+    height: 18px;
   }
   
   /* Calendar Modal Mobile */
