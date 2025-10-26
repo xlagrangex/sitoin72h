@@ -15581,6 +15581,12 @@ body {
   margin: 0 auto;
 }
 
+/* Contact form specific styling */
+#contactSingleForm {
+  max-width: 100%;
+  width: 100%;
+}
+
 .form-row {
   display: flex;
   gap: 1rem;
@@ -15896,6 +15902,12 @@ body {
   .calendar-body {
     height: 500px;
     padding: 0.5rem;
+  }
+  
+  /* Contact form mobile adjustments */
+  #contactSingleForm {
+    max-width: 100%;
+    margin: 0;
   }
   
   /* Mobile form adjustments - First 2 rows in 2 columns */
