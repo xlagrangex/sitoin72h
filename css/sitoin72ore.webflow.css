@@ -15004,20 +15004,20 @@ body {
 }
 
 .modal-body {
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .contact-options {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 0.8rem;
 }
 
 .contact-option {
   text-align: center;
-  padding: 1.5rem;
+  padding: 0.8rem;
   border: 2px solid #f0f0f0;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   transition: all 0.3s ease;
 }
 
@@ -15028,34 +15028,34 @@ body {
 }
 
 .option-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
 }
 
 .contact-option h3 {
   font-family: "Darker Grotesque", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--_colors---primary--black);
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.3rem 0;
 }
 
 .contact-option p {
   font-family: "Darker Grotesque", sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #666;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 0.8rem 0;
 }
 
 .option-button {
   background-image: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
   color: white;
   font-family: "Darker Grotesque", sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  padding: 0.8rem 2rem;
+  padding: 0.6rem 1.5rem;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.4rem;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
@@ -15085,36 +15085,43 @@ body {
   }
   
   .modal-header {
-    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    padding: 1rem 1rem 0.5rem 1rem;
   }
   
   .modal-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   
   .modal-body {
-    padding: 1.5rem;
+    padding: 0.8rem;
   }
   
   .contact-options {
-    gap: 1rem;
+    gap: 0.6rem;
   }
   
   .contact-option {
-    padding: 1rem;
+    padding: 0.6rem;
   }
   
   .option-icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
   }
   
   .contact-option h3 {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    margin: 0 0 0.2rem 0;
+  }
+  
+  .contact-option p {
+    font-size: 0.75rem;
+    margin: 0 0 0.6rem 0;
   }
   
   .option-button {
-    font-size: 0.9rem;
-    padding: 0.7rem 1.5rem;
+    font-size: 0.8rem;
+    padding: 0.5rem 1.2rem;
   }
 }
 
