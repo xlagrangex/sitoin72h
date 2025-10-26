@@ -15897,23 +15897,25 @@ body {
     padding: 0.5rem;
   }
   
-  /* Mobile form adjustments - Only first 2 fields in 2 columns */
-  .form-row:first-child {
+  /* Mobile form adjustments - First 2 rows in 2 columns */
+  .form-row:first-child,
+  .form-row:nth-child(2) {
     flex-direction: row;
     gap: 0.5rem;
   }
   
-  .form-row:first-child .form-field.half-width {
+  .form-row:first-child .form-field.half-width,
+  .form-row:nth-child(2) .form-field.half-width {
     flex: 1;
     width: 48%;
   }
   
   /* All other rows full width on mobile */
-  .form-row:not(:first-child) {
+  .form-row:not(:first-child):not(:nth-child(2)) {
     flex-direction: column;
   }
   
-  .form-row:not(:first-child) .form-field {
+  .form-row:not(:first-child):not(:nth-child(2)) .form-field {
     width: 100%;
   }
 }
