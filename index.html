@@ -1959,6 +1959,38 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize real-time validation
   setupRealTimeValidation();
   
+  // Confetti effect function
+  function createConfettiEffect() {
+    const confettiContainer = document.createElement('div');
+    confettiContainer.className = 'confetti-container';
+    document.body.appendChild(confettiContainer);
+    
+    // Create confetti pieces
+    for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      
+      // Random horizontal position
+      confetti.style.left = Math.random() * 100 + '%';
+      
+      // Random delay for staggered effect
+      confetti.style.animationDelay = Math.random() * 2 + 's';
+      
+      // Random horizontal drift
+      const drift = (Math.random() - 0.5) * 200;
+      confetti.style.setProperty('--drift', drift + 'px');
+      
+      confettiContainer.appendChild(confetti);
+    }
+    
+    // Remove confetti container after animation
+    setTimeout(() => {
+      if (confettiContainer.parentNode) {
+        confettiContainer.parentNode.removeChild(confettiContainer);
+      }
+    }, 5000);
+  }
+  
   // Add click listeners to all buttons that should open the modal
   const buttonsToOpenModal = document.querySelectorAll('.sticky-bar-button, .whatsapp-button, .whatsapp-button-mobile');
   buttonsToOpenModal.forEach(button => {
@@ -1996,6 +2028,9 @@ document.addEventListener('DOMContentLoaded', function() {
     e.preventDefault(); // Prevent default browser validation popup
     
     if (validateForm()) {
+      // Trigger confetti effect
+      createConfettiEffect();
+      
       // Close contact modal
       closeModalFunc();
       

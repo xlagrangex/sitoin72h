@@ -15398,6 +15398,79 @@ body {
   padding: 1rem 2rem 2rem 2rem;
 }
 
+/* Confetti Animation */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10000;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ff6b6b;
+  animation: confetti-fall 3s linear forwards;
+}
+
+.confetti:nth-child(2n) {
+  background: #4ecdc4;
+  width: 8px;
+  height: 8px;
+}
+
+.confetti:nth-child(3n) {
+  background: #45b7d1;
+  width: 12px;
+  height: 12px;
+}
+
+.confetti:nth-child(4n) {
+  background: #96ceb4;
+  width: 6px;
+  height: 6px;
+}
+
+.confetti:nth-child(5n) {
+  background: #feca57;
+  width: 14px;
+  height: 14px;
+}
+
+.confetti:nth-child(6n) {
+  background: #ff9ff3;
+  width: 8px;
+  height: 8px;
+}
+
+.confetti:nth-child(7n) {
+  background: #54a0ff;
+  width: 10px;
+  height: 10px;
+}
+
+.confetti:nth-child(8n) {
+  background: #5f27cd;
+  width: 12px;
+  height: 12px;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) translateX(0px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(var(--drift, 0px)) rotate(720deg);
+    opacity: 0;
+  }
+}
+
 /* Thank You Modal */
 .thank-you-modal {
   max-width: 500px;
