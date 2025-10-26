@@ -14670,7 +14670,7 @@ figcaption {
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .marquee-content {
@@ -14921,7 +14921,7 @@ figcaption {
   /* Top Marquee Mobile */
   .top-marquee {
     height: 35px;
-    padding-bottom: 0.4rem;
+    margin-bottom: 0.4rem;
   }
   
   .marquee-item {
