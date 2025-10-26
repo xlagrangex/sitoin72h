@@ -15527,18 +15527,14 @@ body {
   font-weight: 500;
 }
 
-.form-field input:invalid,
 .form-field input.error,
-.form-field select:invalid,
 .form-field select.error {
   border-color: #dc3545;
   background-color: #fff5f5;
   box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.1);
 }
 
-.form-field input:invalid:focus,
 .form-field input.error:focus,
-.form-field select:invalid:focus,
 .form-field select.error:focus {
   border-color: #dc3545;
   box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2);
