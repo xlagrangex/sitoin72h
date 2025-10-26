@@ -14682,7 +14682,7 @@ figcaption {
 
 .marquee-item {
   font-family: "Darker Grotesque", sans-serif;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 600;
   margin-right: 4rem;
   flex-shrink: 0;
@@ -14925,7 +14925,7 @@ figcaption {
   }
   
   .marquee-item {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-right: 3rem;
   }
   
