@@ -14662,15 +14662,12 @@ figcaption {
 
 /* Top Marquee */
 .top-marquee {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: static;
   width: 100%;
   height: 40px;
   background: linear-gradient(135deg, #1a4088, #a51b7f, #da5712);
   color: white;
   overflow: hidden;
-  z-index: 10001;
   display: flex;
   align-items: center;
 }
@@ -14699,10 +14696,7 @@ figcaption {
   }
 }
 
-/* Adjust body padding to account for marquee */
-body {
-  padding-top: 40px;
-}
+/* Body padding removed - marquee is now static */
 
 /* Sticky Bar */
 .sticky-bar {
@@ -14932,9 +14926,7 @@ body {
     margin-right: 3rem;
   }
   
-  body {
-    padding-top: 35px;
-  }
+  /* Body padding removed - marquee is now static */
   
   .sticky-bar {
     height: 50px;
