@@ -15577,6 +15577,8 @@ body {
 /* Single Page Form Styles */
 .single-form {
   position: relative;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .form-row {
