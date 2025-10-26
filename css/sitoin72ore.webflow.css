@@ -8970,6 +8970,19 @@ figcaption {
   }
 }
 
+/* Mobile fix for "Un processo trasparente e un lancio rapidissimo" */
+@media (max-width: 768px) {
+  .heading-11._3-3.white {
+    font-size: 0.96em !important; /* Reduce by 4% */
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+  
+  .heading-11._3-3.white br {
+    display: block !important;
+  }
+}
+
 .div-block-10156 {
   grid-column-gap: 20px;
   grid-row-gap: 20px;
