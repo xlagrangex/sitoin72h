@@ -2266,6 +2266,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
+  // Add network error handling
+  window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('webhook')) {
+      console.error('🌐 Webhook network error:', e.message);
+      
+      const errorDiv = document.createElement('div');
+      errorDiv.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #ff9800; color: white; padding: 15px; border-radius: 5px; z-index: 10000; font-family: Arial;';
+      errorDiv.innerHTML = '⚠️ Errore di rete webhook!<br>Controlla la console per i dettagli.';
+      document.body.appendChild(errorDiv);
+      
+      setTimeout(() => {
+        errorDiv.remove();
+      }, 5000);
+    }
+  });
+
   // Submit form
   submitBtn.addEventListener('click', function(e) {
     e.preventDefault(); // Prevent default browser validation popup
@@ -2301,7 +2317,23 @@ document.addEventListener('DOMContentLoaded', function() {
         debugDiv.remove();
       }, 5000);
       
-      form.submit();
+      // Try to submit with error handling
+      try {
+        form.submit();
+        console.log('📡 Form submit() called successfully');
+      } catch (error) {
+        console.error('❌ Error submitting form:', error);
+        
+        // Show error message
+        const errorDiv = document.createElement('div');
+        errorDiv.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #f44336; color: white; padding: 15px; border-radius: 5px; z-index: 10000; font-family: Arial;';
+        errorDiv.innerHTML = '❌ Errore nell\'invio del form!<br>Controlla la console per i dettagli.';
+        document.body.appendChild(errorDiv);
+        
+        setTimeout(() => {
+          errorDiv.remove();
+        }, 5000);
+      }
       
       // Trigger confetti effect
       createConfettiEffect();
@@ -2572,8 +2604,23 @@ document.addEventListener('DOMContentLoaded', function() {
           debugDiv.remove();
         }, 5000);
         
-        // Form is valid, submit it
-        contactForm.submit();
+        // Try to submit with error handling
+        try {
+          contactForm.submit();
+          console.log('📡 Contact form submit() called successfully');
+        } catch (error) {
+          console.error('❌ Error submitting contact form:', error);
+          
+          // Show error message
+          const errorDiv = document.createElement('div');
+          errorDiv.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #f44336; color: white; padding: 15px; border-radius: 5px; z-index: 10000; font-family: Arial;';
+          errorDiv.innerHTML = '❌ Errore nell\'invio del form contatti!<br>Controlla la console per i dettagli.';
+          document.body.appendChild(errorDiv);
+          
+          setTimeout(() => {
+            errorDiv.remove();
+          }, 5000);
+        }
       } else {
         console.log('❌ Contact form validation failed');
         
