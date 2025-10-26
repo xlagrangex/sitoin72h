@@ -15014,13 +15014,13 @@ body {
 }
 
 .contact-option {
-  padding: 1.5rem;
+  padding: 1rem;
   border: 2px solid #f0f0f0;
   border-radius: 0.75rem;
   transition: all 0.2s ease;
   cursor: pointer;
   background: white;
-  min-height: 80px;
+  min-height: 60px;
 }
 
 .contact-option:hover {
@@ -15031,15 +15031,15 @@ body {
 .option-content {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   width: 100%;
   height: 100%;
 }
 
 .option-icon {
   flex-shrink: 0;
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15049,8 +15049,8 @@ body {
 }
 
 .option-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .option-text {
@@ -15060,19 +15060,19 @@ body {
 
 .contact-option h3 {
   font-family: "Darker Grotesque", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--_colors---primary--black);
-  margin: 0 0 0.5rem 0;
-  line-height: 1.3;
+  margin: 0 0 0.3rem 0;
+  line-height: 1.2;
 }
 
 .contact-option p {
   font-family: "Darker Grotesque", sans-serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #666;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.3;
   font-weight: 500;
 }
 
@@ -15112,32 +15112,32 @@ body {
   }
   
   .contact-option {
-    padding: 1.2rem;
-    min-height: 70px;
+    padding: 0.8rem;
+    min-height: 50px;
   }
   
   .option-content {
-    gap: 1rem;
+    gap: 0.8rem;
   }
   
   .option-icon {
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
   
   .option-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
   
   .contact-option h3 {
-    font-size: 1.2rem;
-    margin: 0 0 0.3rem 0;
+    font-size: 1.4rem;
+    margin: 0 0 0.2rem 0;
     font-weight: 700;
   }
   
   .contact-option p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin: 0;
     font-weight: 500;
   }
