@@ -14679,6 +14679,7 @@ figcaption {
   display: flex;
   animation: marquee-scroll 30s linear infinite;
   white-space: nowrap;
+  width: 200%;
 }
 
 .marquee-item {
@@ -14691,7 +14692,7 @@ figcaption {
 
 @keyframes marquee-scroll {
   0% {
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
   100% {
     transform: translateX(-100%);
