@@ -15396,6 +15396,22 @@ body {
   padding: 2rem;
 }
 
+/* Calendar Modal Styles */
+.calendar-modal {
+  max-width: 800px;
+  max-height: 90vh;
+}
+
+.calendar-body {
+  padding: 1rem;
+  height: 600px;
+  overflow: hidden;
+}
+
+.calendar-body > div {
+  height: 100%;
+}
+
 /* Single Page Form Styles */
 .single-form {
   position: relative;
@@ -15613,5 +15629,16 @@ body {
     text-align: center;
     font-size: 0.75rem;
     padding: 0.6rem 1rem;
+  }
+  
+  /* Calendar Modal Mobile */
+  .calendar-modal {
+    max-width: calc(100% - 1rem);
+    margin: 0.5rem;
+  }
+  
+  .calendar-body {
+    height: 500px;
+    padding: 0.5rem;
   }
 }

@@ -85,6 +85,22 @@
     </div>
   </div>
   
+  <!-- Calendar Modal -->
+  <div id="calendarModal" class="modal-overlay">
+    <div class="modal-content calendar-modal">
+      <div class="modal-header">
+        <div class="modal-header-content">
+          <h2 class="modal-title">📅 Fissa il tuo appuntamento</h2>
+          <p class="modal-subtitle">Scegli data e ora per la tua consulenza gratuita</p>
+        </div>
+        <button class="modal-close" id="closeCalendarModal">&times;</button>
+      </div>
+      <div class="modal-body calendar-body">
+        <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-30min"></div>
+      </div>
+    </div>
+  </div>
+  
   <!-- Popup Modal -->
   <div id="contactModal" class="modal-overlay">
     <div class="modal-content">
@@ -1744,7 +1760,7 @@ document.addEventListener('DOMContentLoaded', function() {
   calendarLink.addEventListener('click', function(e) {
     e.preventDefault();
     closeModalFunc();
-    alert('Funzionalità calendario in arrivo! Per ora contattaci via WhatsApp.');
+    openCalendarModal();
   });
   
   whatsappLink.addEventListener('click', function(e) {
@@ -1752,5 +1768,56 @@ document.addEventListener('DOMContentLoaded', function() {
     closeModalFunc();
     window.open('https://wa.me/393792473044?text=Ciao%2C%20vorrei%20maggiori%20informazioni%20sul%20vostro%20servizio%20di%20sviluppo%20siti%20web%20in%2072%20ore.', '_blank');
   });
+});
+
+// Calendar Modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const calendarModal = document.getElementById('calendarModal');
+  const closeCalendarModal = document.getElementById('closeCalendarModal');
+  
+  // Function to open calendar modal
+  function openCalendarModal() {
+    calendarModal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    
+    // Initialize Cal.com embed
+    if (typeof Cal !== 'undefined') {
+      Cal("init", "30min", {origin:"https://app.cal.com"});
+    } else {
+      // Load Cal.com script if not already loaded
+      const script = document.createElement('script');
+      script.src = 'https://app.cal.com/embed/embed.js';
+      script.onload = function() {
+        Cal("init", "30min", {origin:"https://app.cal.com"});
+      };
+      document.head.appendChild(script);
+    }
+  }
+  
+  // Function to close calendar modal
+  function closeCalendarModalFunc() {
+    calendarModal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+  }
+  
+  // Close calendar modal events
+  closeCalendarModal.addEventListener('click', closeCalendarModalFunc);
+  
+  // Close calendar modal when clicking outside
+  calendarModal.addEventListener('click', function(e) {
+    if (e.target === calendarModal) {
+      closeCalendarModalFunc();
+    }
+  });
+  
+  // Close calendar modal with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && calendarModal.classList.contains('show')) {
+      closeCalendarModalFunc();
+    }
+  });
+  
+  // Make openCalendarModal globally available
+  window.openCalendarModal = openCalendarModal;
 });
 </script>
