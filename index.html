@@ -175,10 +175,12 @@
             <div class="form-field half-width">
               <label for="firstName">Nome *</label>
               <input type="text" id="firstName" placeholder="Il tuo nome" required>
+              <div class="error-message" id="firstNameError">Il nome è obbligatorio</div>
             </div>
             <div class="form-field half-width">
               <label for="lastName">Cognome *</label>
               <input type="text" id="lastName" placeholder="Il tuo cognome" required>
+              <div class="error-message" id="lastNameError">Il cognome è obbligatorio</div>
             </div>
           </div>
           
@@ -186,10 +188,12 @@
             <div class="form-field half-width">
               <label for="companyName">Nome Azienda *</label>
               <input type="text" id="companyName" placeholder="Nome della tua azienda" required>
+              <div class="error-message" id="companyNameError">Il nome azienda è obbligatorio</div>
             </div>
             <div class="form-field half-width">
               <label for="companySector">Settore Azienda *</label>
               <input type="text" id="companySector" placeholder="Es: Tecnologia, Commercio, Servizi..." required>
+              <div class="error-message" id="companySectorError">Il settore azienda è obbligatorio</div>
             </div>
           </div>
           
@@ -197,10 +201,12 @@
             <div class="form-field half-width">
               <label for="phone">Numero di Telefono *</label>
               <input type="tel" id="phone" placeholder="+39 123 456 7890" required>
+              <div class="error-message" id="phoneError">Il numero di telefono è obbligatorio</div>
             </div>
             <div class="form-field half-width">
               <label for="email">Email *</label>
               <input type="email" id="email" placeholder="tua@email.com" required>
+              <div class="error-message" id="emailError">L'email è obbligatoria e deve essere valida</div>
             </div>
           </div>
           
@@ -210,6 +216,7 @@
               <span class="checkmark"></span>
               <span class="privacy-text">Accetto il trattamento dei dati personali secondo la <a href="#" class="privacy-link">Privacy Policy</a></span>
             </label>
+            <div class="error-message" id="privacyError">Devi accettare la privacy policy per continuare</div>
           </div>
           
           <button class="submit-btn" id="submitBtn">
@@ -1774,18 +1781,171 @@ document.addEventListener('DOMContentLoaded', function() {
       if (input) input.value = '';
       if (input && input.type === 'checkbox') input.checked = false;
     });
+    
+    // Clear all errors when resetting
+    clearAllErrors();
   }
   
-  // Function to validate form
+  // Enhanced form validation with visual feedback
   function validateForm() {
-    return firstName.value.trim() !== '' && 
-           lastName.value.trim() !== '' && 
-           companyName.value.trim() !== '' && 
-           companySector.value !== '' && 
-           phone.value.trim() !== '' && 
-           email.value.trim() !== '' && 
-           privacy.checked;
+    let isValid = true;
+    
+    // Clear previous errors
+    clearAllErrors();
+    
+    // Validate first name
+    if (!firstName.value.trim()) {
+      showError('firstName', 'firstNameError', 'Il nome è obbligatorio');
+      isValid = false;
+    }
+    
+    // Validate last name
+    if (!lastName.value.trim()) {
+      showError('lastName', 'lastNameError', 'Il cognome è obbligatorio');
+      isValid = false;
+    }
+    
+    // Validate company name
+    if (!companyName.value.trim()) {
+      showError('companyName', 'companyNameError', 'Il nome azienda è obbligatorio');
+      isValid = false;
+    }
+    
+    // Validate company sector
+    if (!companySector.value.trim()) {
+      showError('companySector', 'companySectorError', 'Il settore azienda è obbligatorio');
+      isValid = false;
+    }
+    
+    // Validate phone
+    if (!phone.value.trim()) {
+      showError('phone', 'phoneError', 'Il numero di telefono è obbligatorio');
+      isValid = false;
+    } else if (!isValidPhone(phone.value)) {
+      showError('phone', 'phoneError', 'Inserisci un numero di telefono valido');
+      isValid = false;
+    }
+    
+    // Validate email
+    if (!email.value.trim()) {
+      showError('email', 'emailError', 'L\'email è obbligatoria');
+      isValid = false;
+    } else if (!isValidEmail(email.value)) {
+      showError('email', 'emailError', 'Inserisci un\'email valida');
+      isValid = false;
+    }
+    
+    // Validate privacy checkbox
+    if (!privacy.checked) {
+      showError('privacy', 'privacyError', 'Devi accettare la privacy policy per continuare');
+      isValid = false;
+    }
+    
+    return isValid;
   }
+  
+  // Helper function to show error
+  function showError(fieldId, errorId, message) {
+    const field = document.getElementById(fieldId);
+    const errorElement = document.getElementById(errorId);
+    const formField = field.closest('.form-field') || field.closest('.privacy-section');
+    
+    // Add error class to field
+    field.classList.add('error');
+    formField.classList.add('error');
+    
+    // Show error message
+    errorElement.textContent = message;
+    errorElement.classList.add('show');
+  }
+  
+  // Helper function to clear all errors
+  function clearAllErrors() {
+    const errorFields = document.querySelectorAll('.form-field.error, .privacy-section.error');
+    const errorInputs = document.querySelectorAll('input.error, select.error');
+    const errorMessages = document.querySelectorAll('.error-message.show');
+    
+    errorFields.forEach(field => field.classList.remove('error'));
+    errorInputs.forEach(input => input.classList.remove('error'));
+    errorMessages.forEach(message => message.classList.remove('show'));
+  }
+  
+  // Helper function to validate email
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+  
+  // Helper function to validate phone
+  function isValidPhone(phone) {
+    const phoneRegex = /^[\+]?[0-9\s\-\(\)]{8,}$/;
+    return phoneRegex.test(phone);
+  }
+  
+  // Real-time validation on input
+  function setupRealTimeValidation() {
+    const inputs = document.querySelectorAll('input[required], select[required]');
+    const checkbox = document.getElementById('privacy');
+    
+    inputs.forEach(input => {
+      input.addEventListener('blur', function() {
+        validateField(this);
+      });
+      
+      input.addEventListener('input', function() {
+        if (this.classList.contains('error')) {
+          validateField(this);
+        }
+      });
+    });
+    
+    checkbox.addEventListener('change', function() {
+      validateField(this);
+    });
+  }
+  
+  // Validate individual field
+  function validateField(field) {
+    const fieldId = field.id;
+    const errorId = fieldId + 'Error';
+    
+    // Clear previous error for this field
+    field.classList.remove('error');
+    const formField = field.closest('.form-field') || field.closest('.privacy-section');
+    formField.classList.remove('error');
+    const errorElement = document.getElementById(errorId);
+    errorElement.classList.remove('show');
+    
+    // Validate based on field type
+    if (field.type === 'email') {
+      if (field.value.trim() && !isValidEmail(field.value)) {
+        showError(fieldId, errorId, 'Inserisci un\'email valida');
+      }
+    } else if (field.type === 'tel') {
+      if (field.value.trim() && !isValidPhone(field.value)) {
+        showError(fieldId, errorId, 'Inserisci un numero di telefono valido');
+      }
+    } else if (field.type === 'checkbox') {
+      if (!field.checked) {
+        showError(fieldId, errorId, 'Devi accettare la privacy policy per continuare');
+      }
+    } else {
+      if (!field.value.trim()) {
+        const messages = {
+          'firstName': 'Il nome è obbligatorio',
+          'lastName': 'Il cognome è obbligatorio',
+          'companyName': 'Il nome azienda è obbligatorio',
+          'companySector': 'Il settore azienda è obbligatorio',
+          'phone': 'Il numero di telefono è obbligatorio',
+          'email': 'L\'email è obbligatoria'
+        };
+        showError(fieldId, errorId, messages[fieldId] || 'Campo obbligatorio');
+      }
+    }
+  }
+  
+  // Initialize real-time validation
+  setupRealTimeValidation();
   
   // Add click listeners to all buttons that should open the modal
   const buttonsToOpenModal = document.querySelectorAll('.sticky-bar-button, .whatsapp-button, .whatsapp-button-mobile');
