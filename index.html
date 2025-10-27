@@ -1788,6 +1788,13 @@
                   <a href="#" class="button-8 _100 w-button">Richiedi informazioni</a>
                 </div>
               </section>
+                  
+                  <!-- Mobile Slider Navigation -->
+                  <div class="review-slider-nav" style="display: none;">
+                    <button class="review-slider-btn" id="prevReview">‹</button>
+                    <div class="review-slider-dots" id="reviewDots"></div>
+                    <button class="review-slider-btn" id="nextReview">›</button>
+                  </div>
             </div>
           </div>
         </div>
@@ -2758,6 +2765,109 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Errore durante l'invio del form");
     }
   });
+  
+  // Mobile Reviews Slider
+  function initMobileReviewsSlider() {
+    const sliderWrapper = document.querySelector('.review-slider-wrapper');
+    const sliderContent = document.querySelector('.review-section-content-wrapper');
+    const prevBtn = document.getElementById('prevReview');
+    const nextBtn = document.getElementById('nextReview');
+    const dotsContainer = document.getElementById('reviewDots');
+    const sliderNav = document.querySelector('.review-slider-nav');
+    
+    if (!sliderWrapper || !sliderContent) return;
+    
+    const reviews = sliderContent.querySelectorAll('.review-card');
+    const totalReviews = reviews.length;
+    let currentSlide = 0;
+    const reviewsPerSlide = 3;
+    const totalSlides = Math.ceil(totalReviews / reviewsPerSlide);
+    
+    // Show slider nav only on mobile
+    function checkMobile() {
+      if (window.innerWidth <= 768) {
+        sliderNav.style.display = 'flex';
+        sliderContent.style.display = 'flex';
+        sliderContent.style.width = '300%';
+        reviews.forEach((review, index) => {
+          review.style.flex = '0 0 33.333%';
+          review.style.padding = '0 10px';
+        });
+      } else {
+        sliderNav.style.display = 'none';
+        sliderContent.style.display = 'block';
+        sliderContent.style.width = '100%';
+        reviews.forEach(review => {
+          review.style.flex = 'none';
+          review.style.padding = '0';
+        });
+      }
+    }
+    
+    // Create dots
+    function createDots() {
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'review-slider-dot';
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+    
+    // Update slider position
+    function updateSlider() {
+      const translateX = -currentSlide * (100 / totalSlides);
+      sliderContent.style.transform = `translateX(${translateX}%)`;
+      
+      // Update dots
+      dotsContainer.querySelectorAll('.review-slider-dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+      
+      // Update buttons
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === totalSlides - 1;
+    }
+    
+    // Go to specific slide
+    function goToSlide(slide) {
+      currentSlide = slide;
+      updateSlider();
+    }
+    
+    // Next slide
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateSlider();
+      }
+    }
+    
+    // Previous slide
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlider();
+      }
+    }
+    
+    // Event listeners
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    // Initialize
+    checkMobile();
+    createDots();
+    updateSlider();
+    
+    // Check on resize
+    window.addEventListener('resize', checkMobile);
+  }
+  
+  // Initialize slider when DOM is loaded
+  document.addEventListener('DOMContentLoaded', initMobileReviewsSlider);
 });
 </script>
 
