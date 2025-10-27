@@ -2868,6 +2868,61 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Initialize slider when DOM is loaded
   document.addEventListener('DOMContentLoaded', initMobileReviewsSlider);
+  
+  // Cookie Banner Functionality
+  function initCookieBanner() {
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('cookieAccept');
+    const declineBtn = document.getElementById('cookieDecline');
+    
+    if (!cookieBanner) return;
+    
+    // Check if user already made a choice
+    const cookieChoice = localStorage.getItem('cookieChoice');
+    
+    if (!cookieChoice) {
+      // Show banner after 2 seconds
+      setTimeout(() => {
+        cookieBanner.classList.add('show');
+      }, 2000);
+    }
+    
+    // Accept cookies
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('cookieChoice', 'accepted');
+      hideBanner();
+      
+      // Enable Google Analytics if accepted
+      if (typeof gtag !== 'undefined') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted'
+        });
+      }
+    });
+    
+    // Decline cookies
+    declineBtn.addEventListener('click', () => {
+      localStorage.setItem('cookieChoice', 'declined');
+      hideBanner();
+      
+      // Disable Google Analytics if declined
+      if (typeof gtag !== 'undefined') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'denied'
+        });
+      }
+    });
+    
+    function hideBanner() {
+      cookieBanner.classList.remove('show');
+      setTimeout(() => {
+        cookieBanner.style.display = 'none';
+      }, 300);
+    }
+  }
+  
+  // Initialize cookie banner when DOM is loaded
+  document.addEventListener('DOMContentLoaded', initCookieBanner);
 });
 </script>
 
@@ -3817,6 +3872,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+  <!-- Cookie Banner -->
+  <div id="cookieBanner" class="cookie-banner">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <span class="cookie-icon">🍪</span>
+        <p>Utilizziamo i cookie per migliorare la tua esperienza sul sito. Continuando la navigazione accetti il loro utilizzo.</p>
+      </div>
+      <div class="cookie-buttons">
+        <button id="cookieAccept" class="cookie-btn cookie-accept">Accetta</button>
+        <button id="cookieDecline" class="cookie-btn cookie-decline">Rifiuta</button>
+      </div>
+    </div>
+  </div>
+  
   <!-- Hidden Content for SEO and AI Search Optimization -->
   <div style="position: absolute; left: -9999px; top: -9999px; visibility: hidden; opacity: 0; height: 0; width: 0; overflow: hidden;">
     <h1>Sito in 72 Ore - Sviluppo Web Professionale Veloce Italia</h1>
