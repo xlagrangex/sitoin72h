@@ -3119,12 +3119,21 @@ document.addEventListener('DOMContentLoaded', function() {
       
       
       // Try to submit to n8n webhook
-      try {
-        form.submit();
-        console.log('📡 n8n webhook submit() called successfully');
-      } catch (error) {
-        console.error('❌ Error submitting to n8n webhook:', error);
-      }
+        try {
+          fetch(n8nWebhook, {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.text())
+          .then(data => {
+            console.log('✅ n8n webhook response:', data);
+          })
+          .catch(error => {
+            console.error('❌ Error sending to n8n webhook:', error);
+          });
+        } catch (error) {
+          console.error('❌ Error with n8n fetch:', error);
+        }
       
       // Send to Google Sheets webhook via fetch
       try {
@@ -3403,10 +3412,19 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Try to submit to n8n webhook
         try {
-          contactForm.submit();
-          console.log('📡 Contact form n8n webhook submit() called successfully');
+          fetch(n8nWebhook, {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.text())
+          .then(data => {
+            console.log('✅ Contact form n8n webhook response:', data);
+          })
+          .catch(error => {
+            console.error('❌ Error sending contact form to n8n webhook:', error);
+          });
         } catch (error) {
-          console.error('❌ Error submitting contact form to n8n webhook:', error);
+          console.error('❌ Error with contact form n8n fetch:', error);
         }
         
         // Send to Google Sheets webhook via fetch
