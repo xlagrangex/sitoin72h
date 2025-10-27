@@ -3163,6 +3163,13 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       // Trigger confetti effect
+      // Track form submission in Google Analytics
+      gtag('event', 'form_submission', {
+        'form_submit': 'contact_form_submitted',
+        'event_category': 'engagement',
+        'event_label': 'contact_form'
+      });
+      
       createConfettiEffect();
       
       // Close contact modal
@@ -3453,6 +3460,18 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (error) {
           console.error('❌ Error with contact form Google Sheets fetch:', error);
         }
+        
+        // Track contact form submission in Google Analytics
+        gtag('event', 'form_submission', {
+          'form_submit': 'contact_form_submitted',
+          'event_category': 'engagement',
+          'event_label': 'contact_form'
+        });
+        
+        createConfettiEffect();
+        setTimeout(() => {
+          window.openThankYouModal();
+        }, 100);
       } else {
         console.log('❌ Contact form validation failed');
         
