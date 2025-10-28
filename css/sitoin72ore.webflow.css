@@ -7431,14 +7431,15 @@ figcaption {
 .black-friday-badge {
   background-color: #000;
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
   display: inline-block;
-  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  vertical-align: middle;
 }
 
 .text-block-7 {
