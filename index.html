@@ -2927,39 +2927,50 @@ document.addEventListener("DOMContentLoaded", () => {
   // Sticky Bar Scroll Functionality
   function initStickyBar() {
     const stickyBar = document.querySelector('.sticky-bar');
-    const heroSection = document.querySelector('#home'); // Use the actual hero section
-    
-    if (!stickyBar || !heroSection) return;
-    
+    const heroA = document.querySelector('#home');
+    const heroB = document.querySelector('.section_home-header');
+
+    if (!stickyBar) return;
+
+    function getHeroBottom() {
+      let bottomA = 0;
+      let bottomB = 0;
+      if (heroA) bottomA = heroA.offsetTop + heroA.offsetHeight;
+      if (heroB) bottomB = heroB.offsetTop + heroB.offsetHeight;
+      return Math.max(bottomA, bottomB);
+    }
+
     function handleScroll() {
-      const heroSectionBottom = heroSection.offsetTop + heroSection.offsetHeight;
+      const threshold = getHeroBottom();
       const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-      
-      if (scrollPosition >= heroSectionBottom) {
+      if (scrollPosition >= threshold) {
         stickyBar.classList.add('show');
       } else {
         stickyBar.classList.remove('show');
       }
     }
-    
-    // Throttle scroll events for better performance
+
+    // Throttle scroll/resize for better performance
     let ticking = false;
     function requestTick() {
       if (!ticking) {
-        requestAnimationFrame(handleScroll);
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
         ticking = true;
-        setTimeout(() => { ticking = false; }, 16); // ~60fps
       }
     }
-    
+
     window.addEventListener('scroll', requestTick);
-    
-    // Check initial position
+    window.addEventListener('resize', requestTick);
+
+    // Initial check
     handleScroll();
   }
   
-  // Initialize sticky bar when DOM is loaded
-  document.addEventListener('DOMContentLoaded', initStickyBar);
+  // Initialize sticky bar immediately (we are already in a DOM-ready block)
+  initStickyBar();
 });
 </script>
 
