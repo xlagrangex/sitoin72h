@@ -15023,12 +15023,12 @@ figcaption {
 /* Business Merita Glow Effect */
 .business-glow {
   text-shadow: 
-    0 0 10px rgba(26, 64, 136, 0.8),
-    0 0 20px rgba(165, 27, 127, 0.6),
-    0 0 30px rgba(218, 87, 18, 0.4),
-    0 0 40px rgba(26, 64, 136, 0.3),
-    0 0 50px rgba(165, 27, 127, 0.2),
-    0 0 60px rgba(218, 87, 18, 0.1);
+    0 2px 10px rgba(26, 64, 136, 0.8),
+    0 4px 20px rgba(165, 27, 127, 0.6),
+    0 6px 30px rgba(218, 87, 18, 0.4),
+    0 8px 40px rgba(26, 64, 136, 0.3),
+    0 10px 50px rgba(165, 27, 127, 0.2),
+    0 12px 60px rgba(218, 87, 18, 0.1);
   animation: businessGlowPulse 3s ease-in-out infinite alternate;
   position: relative;
   z-index: 1;
@@ -15037,21 +15037,21 @@ figcaption {
 @keyframes businessGlowPulse {
   0% {
     text-shadow: 
-      0 0 10px rgba(26, 64, 136, 0.8),
-      0 0 20px rgba(165, 27, 127, 0.6),
-      0 0 30px rgba(218, 87, 18, 0.4),
-      0 0 40px rgba(26, 64, 136, 0.3),
-      0 0 50px rgba(165, 27, 127, 0.2),
-      0 0 60px rgba(218, 87, 18, 0.1);
+      0 2px 10px rgba(26, 64, 136, 0.8),
+      0 4px 20px rgba(165, 27, 127, 0.6),
+      0 6px 30px rgba(218, 87, 18, 0.4),
+      0 8px 40px rgba(26, 64, 136, 0.3),
+      0 10px 50px rgba(165, 27, 127, 0.2),
+      0 12px 60px rgba(218, 87, 18, 0.1);
   }
   100% {
     text-shadow: 
-      0 0 15px rgba(26, 64, 136, 1),
-      0 0 25px rgba(165, 27, 127, 0.8),
-      0 0 35px rgba(218, 87, 18, 0.6),
-      0 0 45px rgba(26, 64, 136, 0.5),
-      0 0 55px rgba(165, 27, 127, 0.4),
-      0 0 65px rgba(218, 87, 18, 0.3);
+      0 3px 15px rgba(26, 64, 136, 1),
+      0 5px 25px rgba(165, 27, 127, 0.8),
+      0 7px 35px rgba(218, 87, 18, 0.6),
+      0 9px 45px rgba(26, 64, 136, 0.5),
+      0 11px 55px rgba(165, 27, 127, 0.4),
+      0 13px 65px rgba(218, 87, 18, 0.3);
   }
 }
 
@@ -15059,26 +15059,26 @@ figcaption {
 @media (max-width: 768px) {
   .business-glow {
     text-shadow: 
-      0 0 8px rgba(26, 64, 136, 0.7),
-      0 0 16px rgba(165, 27, 127, 0.5),
-      0 0 24px rgba(218, 87, 18, 0.3),
-      0 0 32px rgba(26, 64, 136, 0.2);
+      0 1px 8px rgba(26, 64, 136, 0.7),
+      0 2px 16px rgba(165, 27, 127, 0.5),
+      0 3px 24px rgba(218, 87, 18, 0.3),
+      0 4px 32px rgba(26, 64, 136, 0.2);
   }
   
   @keyframes businessGlowPulse {
     0% {
       text-shadow: 
-        0 0 8px rgba(26, 64, 136, 0.7),
-        0 0 16px rgba(165, 27, 127, 0.5),
-        0 0 24px rgba(218, 87, 18, 0.3),
-        0 0 32px rgba(26, 64, 136, 0.2);
+        0 1px 8px rgba(26, 64, 136, 0.7),
+        0 2px 16px rgba(165, 27, 127, 0.5),
+        0 3px 24px rgba(218, 87, 18, 0.3),
+        0 4px 32px rgba(26, 64, 136, 0.2);
     }
     100% {
       text-shadow: 
-        0 0 12px rgba(26, 64, 136, 0.9),
-        0 0 20px rgba(165, 27, 127, 0.7),
-        0 0 28px rgba(218, 87, 18, 0.5),
-        0 0 36px rgba(26, 64, 136, 0.4);
+        0 2px 12px rgba(26, 64, 136, 0.9),
+        0 3px 20px rgba(165, 27, 127, 0.7),
+        0 4px 28px rgba(218, 87, 18, 0.5),
+        0 5px 36px rgba(26, 64, 136, 0.4);
     }
   }
 }
