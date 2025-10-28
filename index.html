@@ -1118,15 +1118,16 @@
     <main class="main-wrapper">
       <nav class="navbar-3">
         <!-- Top Marquee -->
-        <div class="top-marquee">
+        <div class="top-marquee" id="topMarquee">
           <div class="marquee-content">
-            <span class="marquee-item">🔒 Nessun rischio: paghi solo il 50% all'inizio, saldo a lavoro ultimato</span>
-            <span class="marquee-item">⭐ 50+ aziende hanno già scelto Sitoin72ore™</span>
-            <span class="marquee-item">💸 Prezzo fisso 800€ invece di 2000€ – Promo Black Friday</span>
-            <span class="marquee-item">🔒 Nessun rischio: paghi solo il 50% all'inizio, saldo a lavoro ultimato</span>
-            <span class="marquee-item">⭐ 50+ aziende hanno già scelto Sitoin72ore™</span>
-            <span class="marquee-item">💸 Prezzo fisso 800€ invece di 2000€ – Promo Black Friday</span>
+            <span class="marquee-item">• MARQUE BLACK FRIDAY</span>
+            <span class="marquee-item">• MARQUE BLACK FRIDAY</span>
+            <span class="marquee-item">• MARQUE BLACK FRIDAY</span>
+            <span class="marquee-item">• MARQUE BLACK FRIDAY</span>
+            <span class="marquee-item">• MARQUE BLACK FRIDAY</span>
+            <span class="marquee-item">• MARQUE BLACK FRIDAY</span>
           </div>
+          <button class="marquee-close" id="marqueeClose" onclick="closeMarquee()">×</button>
         </div>
         <div class="padding-global-8 is-small">
           <div class="navbar_component-2">
@@ -2984,6 +2985,24 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Initialize sticky bar immediately (we are already in a DOM-ready block)
   initStickyBar();
+  
+  // Marquee Close Functionality
+  function closeMarquee() {
+    const marquee = document.getElementById('topMarquee');
+    if (marquee) {
+      marquee.style.display = 'none';
+      // Salva la preferenza nel localStorage
+      localStorage.setItem('marqueeClosed', 'true');
+    }
+  }
+  
+  // Check if marquee was previously closed
+  if (localStorage.getItem('marqueeClosed') === 'true') {
+    const marquee = document.getElementById('topMarquee');
+    if (marquee) {
+      marquee.style.display = 'none';
+    }
+  }
 });
 </script>
 
