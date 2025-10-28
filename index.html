@@ -2927,18 +2927,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // Sticky Bar Scroll Functionality
   function initStickyBar() {
     const stickyBar = document.querySelector('.sticky-bar');
-    const heroSection = document.querySelector('.section_home-header');
+    const heroSection = document.querySelector('#home'); // Use the actual hero section
     
-    if (!stickyBar || !heroSection) return;
+    if (!stickyBar || !heroSection) {
+      console.log('Sticky bar or hero section not found');
+      return;
+    }
     
     function handleScroll() {
       const heroSectionBottom = heroSection.offsetTop + heroSection.offsetHeight;
       const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
       
+      console.log('Scroll position:', scrollPosition, 'Hero bottom:', heroSectionBottom);
+      
       if (scrollPosition >= heroSectionBottom) {
         stickyBar.classList.add('show');
+        console.log('Showing sticky bar');
       } else {
         stickyBar.classList.remove('show');
+        console.log('Hiding sticky bar');
       }
     }
     
