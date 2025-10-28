@@ -3337,7 +3337,7 @@ figcaption {
 .heading-style-h6-2 {
   font-family: "Darker Grotesque", sans-serif;
   letter-spacing: -0.05em;
-  font-size: 1.8rem;
+  font-size: 2.8rem;
   font-weight: 700;
   line-height: 100%;
 }
@@ -10008,7 +10008,12 @@ figcaption {
 }
 
 .image-206 {
-  width: 25px;
+  width: 80px;
+}
+
+.image-206.usp {
+  width: 80px;
+  height: 80px;
 }
 
 .dark-wrapper {
@@ -13848,7 +13853,7 @@ figcaption {
   }
 
   .heading-style-h6-2 {
-    font-size: 1.25rem;
+    font-size: 2.2rem;
   }
 
   .home-services_title-2 {
