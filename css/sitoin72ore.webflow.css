@@ -3348,6 +3348,12 @@ figcaption {
   font-weight: 400;
 }
 
+/* Accenti nei paragrafi delle card - grigio chiaro */
+.services_desc-2 strong {
+  color: #e8e8e8;
+  font-weight: 700;
+}
+
 .div-block {
   flex-flow: row;
   justify-content: center;
