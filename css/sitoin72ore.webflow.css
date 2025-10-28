@@ -5318,6 +5318,21 @@ figcaption {
   display: grid;
 }
 
+/* Service Cards Block 2 Boxes */
+.service-cards-block._2-boxes {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .service-cards-block._2-boxes {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
 .services {
   padding-top: 60px;
   padding-bottom: 60px;
