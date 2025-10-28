@@ -7407,6 +7407,15 @@ figcaption {
   font-weight: 700;
 }
 
+/* Prezzo barrato nella hero */
+.price-strikethrough {
+  font-size: 0.7em;
+  color: #999;
+  text-decoration: line-through;
+  margin-left: 0.5rem;
+  font-weight: 400;
+}
+
 .text-block-7 {
   font-weight: var(--_typography---font-weight--medium);
 }
