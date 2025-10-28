@@ -15122,6 +15122,14 @@ figcaption {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 -4px 40px rgba(255, 255, 255, 0.4), 0 -2px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.sticky-bar.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .sticky-bar-content {

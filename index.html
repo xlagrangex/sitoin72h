@@ -2923,6 +2923,43 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Initialize cookie banner when DOM is loaded
   document.addEventListener('DOMContentLoaded', initCookieBanner);
+  
+  // Sticky Bar Scroll Functionality
+  function initStickyBar() {
+    const stickyBar = document.querySelector('.sticky-bar');
+    const heroSection = document.querySelector('.section_home-header');
+    
+    if (!stickyBar || !heroSection) return;
+    
+    function handleScroll() {
+      const heroSectionBottom = heroSection.offsetTop + heroSection.offsetHeight;
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollPosition >= heroSectionBottom) {
+        stickyBar.classList.add('show');
+      } else {
+        stickyBar.classList.remove('show');
+      }
+    }
+    
+    // Throttle scroll events for better performance
+    let ticking = false;
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(handleScroll);
+        ticking = true;
+        setTimeout(() => { ticking = false; }, 16); // ~60fps
+      }
+    }
+    
+    window.addEventListener('scroll', requestTick);
+    
+    // Check initial position
+    handleScroll();
+  }
+  
+  // Initialize sticky bar when DOM is loaded
+  document.addEventListener('DOMContentLoaded', initStickyBar);
 });
 </script>
 
@@ -3885,7 +3922,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
   </div>
-  
+
   <!-- Hidden Content for SEO and AI Search Optimization -->
   <div style="position: absolute; left: -9999px; top: -9999px; visibility: hidden; opacity: 0; height: 0; width: 0; overflow: hidden;">
     <h1>Sito in 72 Ore - Sviluppo Web Professionale Veloce Italia</h1>
