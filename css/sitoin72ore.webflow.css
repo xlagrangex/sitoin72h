@@ -8756,9 +8756,9 @@ figcaption {
 
 /* Padding aumentato solo per le icone dei 5 box principali */
 .div-block-10155.usp {
-  width: 120px;
-  height: 120px;
-  padding: 2rem;
+  width: 102px; /* -15% */
+  height: 102px; /* -15% */
+  padding: 1.7rem; /* ~-15% */
   border-radius: 16px;
 }
 
@@ -10026,8 +10026,8 @@ figcaption {
 }
 
 .image-206.usp {
-  width: 80px;
-  height: 80px;
+  width: 68px; /* -15% */
+  height: 68px; /* -15% */
 }
 
 .dark-wrapper {
@@ -14637,9 +14637,9 @@ figcaption {
   }
 
   .div-block-10155.usp {
-    width: 100px;
-    height: 100px;
-    padding: 1.5rem;
+    width: 85px; /* -15% */
+    height: 85px; /* -15% */
+    padding: 1.25rem; /* ~-15% */
   }
 
   .div-block-10155.no-desk {
