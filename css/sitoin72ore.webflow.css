@@ -7411,9 +7411,20 @@ figcaption {
 .price-strikethrough {
   font-size: 0.7em;
   color: #999;
-  text-decoration: line-through;
   margin-left: 0.5rem;
   font-weight: 400;
+}
+
+/* Offerta hero: bianco schiarito bold, barra solo 1290€ */
+.price-offer {
+  font-size: 0.7em;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+  margin-left: 0.5rem;
+}
+
+.only-strike {
+  text-decoration: line-through;
 }
 
 .text-block-7 {
