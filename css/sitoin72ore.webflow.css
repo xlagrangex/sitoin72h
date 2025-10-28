@@ -15020,6 +15020,69 @@ figcaption {
   filter: saturate(1.2) brightness(1.05);
 }
 
+/* Business Merita Glow Effect */
+.business-glow {
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 0 30px rgba(255, 255, 255, 0.4),
+    0 0 40px rgba(255, 255, 255, 0.3),
+    0 0 50px rgba(255, 255, 255, 0.2),
+    0 0 60px rgba(255, 255, 255, 0.1);
+  animation: businessGlowPulse 3s ease-in-out infinite alternate;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes businessGlowPulse {
+  0% {
+    text-shadow: 
+      0 0 10px rgba(255, 255, 255, 0.8),
+      0 0 20px rgba(255, 255, 255, 0.6),
+      0 0 30px rgba(255, 255, 255, 0.4),
+      0 0 40px rgba(255, 255, 255, 0.3),
+      0 0 50px rgba(255, 255, 255, 0.2),
+      0 0 60px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    text-shadow: 
+      0 0 15px rgba(255, 255, 255, 1),
+      0 0 25px rgba(255, 255, 255, 0.8),
+      0 0 35px rgba(255, 255, 255, 0.6),
+      0 0 45px rgba(255, 255, 255, 0.5),
+      0 0 55px rgba(255, 255, 255, 0.4),
+      0 0 65px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Mobile responsive glow effect */
+@media (max-width: 768px) {
+  .business-glow {
+    text-shadow: 
+      0 0 8px rgba(255, 255, 255, 0.7),
+      0 0 16px rgba(255, 255, 255, 0.5),
+      0 0 24px rgba(255, 255, 255, 0.3),
+      0 0 32px rgba(255, 255, 255, 0.2);
+  }
+  
+  @keyframes businessGlowPulse {
+    0% {
+      text-shadow: 
+        0 0 8px rgba(255, 255, 255, 0.7),
+        0 0 16px rgba(255, 255, 255, 0.5),
+        0 0 24px rgba(255, 255, 255, 0.3),
+        0 0 32px rgba(255, 255, 255, 0.2);
+    }
+    100% {
+      text-shadow: 
+        0 0 12px rgba(255, 255, 255, 0.9),
+        0 0 20px rgba(255, 255, 255, 0.7),
+        0 0 28px rgba(255, 255, 255, 0.5),
+        0 0 36px rgba(255, 255, 255, 0.4);
+    }
+  }
+}
+
 /* Accent secondario - Gradiente blu > magenta */
 .accent-secondary {
   background-image: linear-gradient(135deg, #1a4088, #a51b7f);
