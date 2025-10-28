@@ -8737,14 +8737,23 @@ figcaption {
 .div-block-10155 {
   background-color: #0000;
   background-image: linear-gradient(#282727, #1b1b1b);
-  border-radius: 16px;
+  border-radius: 5px;
   justify-content: center;
   align-items: center;
+  width: 40px;
+  height: 40px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  display: flex;
+  box-shadow: inset 0 1px 2px #fff6;
+}
+
+/* Padding aumentato solo per le icone dei 5 box principali */
+.div-block-10155.usp {
   width: 120px;
   height: 120px;
   padding: 2rem;
-  display: flex;
-  box-shadow: inset 0 1px 2px #fff6;
+  border-radius: 16px;
 }
 
 .div-block-10155.no-desk {
@@ -14617,6 +14626,11 @@ figcaption {
   }
 
   .div-block-10155 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .div-block-10155.usp {
     width: 100px;
     height: 100px;
     padding: 1.5rem;
