@@ -652,7 +652,6 @@
     }
   }
   </script>
-  
   <!-- FAQ Schema for Featured Snippets -->
   <script type="application/ld+json">
   {
@@ -1001,7 +1000,6 @@
       </div>
     </div>
   </div>
-  
   <!-- Popup Modal -->
   <div id="contactModal" class="modal-overlay">
     <div class="modal-content">
@@ -2652,7 +2650,6 @@
       </div>
     </div>
   </div>
-
   <!-- Privacy Policy Popup -->
   <div id="privacyPolicyModal" class="modal-overlay">
     <div class="modal-content legal-modal">
@@ -2977,7 +2974,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initial check
     handleScroll();
   }
-  
   // Initialize sticky bar immediately (we are already in a DOM-ready block)
   initStickyBar();
   
@@ -3046,6 +3042,8 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem('marqueeClosed', 'true');
     }
   }
+  // Expose globally for inline onclick handler
+  window.closeMarquee = closeMarquee;
   
   // Check if marquee was previously closed
   if (localStorage.getItem('marqueeClosed') === 'true') {
@@ -3295,7 +3293,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-  
   // Validate individual field
   function validateField(field) {
     const fieldId = field.id;
@@ -3623,7 +3620,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-  
   function validateContactField(field) {
     const fieldId = field.id;
     let isValid = true;
