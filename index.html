@@ -1119,13 +1119,8 @@
       <nav class="navbar-3">
         <!-- Top Marquee -->
         <div class="top-marquee" id="topMarquee">
-          <div class="marquee-content">
-            <span class="marquee-item">• MARQUE BLACK FRIDAY</span>
-            <span class="marquee-item">• MARQUE BLACK FRIDAY</span>
-            <span class="marquee-item">• MARQUE BLACK FRIDAY</span>
-            <span class="marquee-item">• MARQUE BLACK FRIDAY</span>
-            <span class="marquee-item">• MARQUE BLACK FRIDAY</span>
-            <span class="marquee-item">• MARQUE BLACK FRIDAY</span>
+          <div class="marquee-content" id="marqueeContent">
+            <!-- Il contenuto sarà generato dinamicamente da JavaScript -->
           </div>
           <button class="marquee-close" id="marqueeClose" onclick="closeMarquee()">×</button>
         </div>
@@ -2986,6 +2981,62 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize sticky bar immediately (we are already in a DOM-ready block)
   initStickyBar();
   
+  // Marquee Dynamic Content
+  function initMarquee() {
+    const marqueeContent = document.getElementById('marqueeContent');
+    if (!marqueeContent) return;
+    
+    // Funzione per calcolare il prossimo venerdì
+    function getNextFriday() {
+      const today = new Date();
+      const currentDay = today.getDay(); // 0 = Domenica, 5 = Venerdì
+      
+      let daysUntilFriday;
+      if (currentDay <= 5) {
+        // Se siamo da domenica a venerdì, il prossimo venerdì è tra (5 - currentDay) giorni
+        daysUntilFriday = 5 - currentDay;
+      } else {
+        // Se siamo sabato, il prossimo venerdì è tra 6 giorni
+        daysUntilFriday = 6;
+      }
+      
+      const nextFriday = new Date(today);
+      nextFriday.setDate(today.getDate() + daysUntilFriday);
+      
+      return nextFriday;
+    }
+    
+    // Funzione per formattare la data
+    function formatDate(date) {
+      const day = date.getDate();
+      const month = date.getMonth() + 1; // I mesi partono da 0
+      return `${day} ${getMonthName(month)}`;
+    }
+    
+    // Funzione per ottenere il nome del mese
+    function getMonthName(month) {
+      const months = [
+        'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno',
+        'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'
+      ];
+      return months[month - 1];
+    }
+    
+    // Genera il testo della promozione
+    const nextFriday = getNextFriday();
+    const formattedDate = formatDate(nextFriday);
+    const promoText = `🔥 PROMO BLACK FRIDAY: Sito a 800€ invece di 1290€ - Valida fino al venerdì ${formattedDate}`;
+    
+    // Crea gli elementi del marquee
+    const marqueeItems = [];
+    for (let i = 0; i < 6; i++) {
+      marqueeItems.push(`<span class="marquee-item">• ${promoText}</span>`);
+    }
+    
+    // Inserisce il contenuto nel marquee
+    marqueeContent.innerHTML = marqueeItems.join('');
+  }
+  
   // Marquee Close Functionality
   function closeMarquee() {
     const marquee = document.getElementById('topMarquee');
@@ -3003,6 +3054,9 @@ document.addEventListener("DOMContentLoaded", () => {
       marquee.style.display = 'none';
     }
   }
+  
+  // Initialize marquee content
+  initMarquee();
 });
 </script>
 
