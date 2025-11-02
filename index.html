@@ -1118,6 +1118,91 @@
     </div>
   </div>
   
+  <!-- Exit Intent Popup (Bottom Sheet) -->
+  <div id="exitPopup" class="exit-popup-bottom-sheet">
+    <div class="exit-popup-overlay"></div>
+    <div class="exit-popup-content">
+      <button class="exit-popup-close" id="closeExitPopup">&times;</button>
+      <div class="exit-popup-header">
+        <h2 class="exit-popup-title">🎯 Prima di andare via...</h2>
+        <p class="exit-popup-subtitle">Ultimi <strong id="exitSpotsRemaining">3</strong> slot disponibili per <strong id="exitCurrentMonth">Gennaio</strong></p>
+        <p class="exit-popup-offer">Ottieni il tuo sito a <strong>800€</strong> invece di <span style="text-decoration: line-through;">1290€</span></p>
+      </div>
+      <div class="exit-popup-body">
+        <form class="single-form" id="exitForm" action="https://capassogionata.app.n8n.cloud/webhook/de9a7e63-c90d-4ffa-90df-8fb0799b1607" method="POST">
+          <div class="form-row">
+            <div class="form-field half-width">
+              <label for="exitFirstName">Nome *</label>
+              <input type="text" id="exitFirstName" name="firstName" placeholder="Il tuo nome" required>
+              <div class="error-message" id="exitFirstNameError">Il nome è obbligatorio</div>
+            </div>
+            <div class="form-field half-width">
+              <label for="exitLastName">Cognome *</label>
+              <input type="text" id="exitLastName" name="lastName" placeholder="Il tuo cognome" required>
+              <div class="error-message" id="exitLastNameError">Il cognome è obbligatorio</div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-field half-width">
+              <label for="exitCompanyName">Nome Azienda *</label>
+              <input type="text" id="exitCompanyName" name="companyName" placeholder="Nome della tua azienda" required>
+              <div class="error-message" id="exitCompanyNameError">Il nome azienda è obbligatorio</div>
+            </div>
+            <div class="form-field half-width">
+              <label for="exitCompanySector">Settore Azienda *</label>
+              <input type="text" id="exitCompanySector" name="companySector" placeholder="Es: Tecnologia, Commercio..." required>
+              <div class="error-message" id="exitCompanySectorError">Il settore azienda è obbligatorio</div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-field half-width">
+              <label for="exitPhone">Numero di Telefono *</label>
+              <input type="tel" id="exitPhone" name="phone" placeholder="+39 123 456 7890" required>
+              <div class="error-message" id="exitPhoneError">Il numero di telefono è obbligatorio</div>
+            </div>
+            <div class="form-field half-width">
+              <label for="exitEmail">Email *</label>
+              <input type="email" id="exitEmail" name="email" placeholder="tua@email.com" required>
+              <div class="error-message" id="exitEmailError">L'email è obbligatoria e deve essere valida</div>
+            </div>
+          </div>
+          
+          <div class="privacy-section">
+            <label class="privacy-checkbox">
+              <input type="checkbox" id="exitPrivacy" required>
+              <span class="checkmark"></span>
+              <span class="privacy-text">Accetto il trattamento dei dati personali secondo la <a href="#" class="privacy-link">Privacy Policy</a></span>
+            </label>
+            <div class="error-message" id="exitPrivacyError">Devi accettare la privacy policy per continuare</div>
+          </div>
+          
+          <button class="submit-btn" id="exitSubmitBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Blocca il tuo slot ora
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Push Down Banner -->
+  <div id="pushDownBanner" class="push-down-banner">
+    <div class="push-down-content">
+      <div class="push-down-text">
+        <strong>🎯 Ultimi <span id="bannerSpotsRemaining">3</span> slot disponibili per <span id="bannerCurrentMonth">Gennaio</span></strong>
+        <span class="push-down-offer">Sito a 800€ invece di 1290€</span>
+      </div>
+      <div class="push-down-actions">
+        <button class="push-down-cta" id="bannerOpenModal">Blocca il tuo slot</button>
+        <button class="push-down-close" id="closePushDownBanner">&times;</button>
+      </div>
+    </div>
+  </div>
+  
   <div class="page-wrapper">
     <div style="--blur: 1rem; --ratio: 2;" class="progressive-blur_wrap">
       <div style="--i: 6;" class="progressive-blur_panel is-1"></div>
@@ -4338,6 +4423,259 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Make openCalendarModal globally available
   window.openCalendarModal = openCalendarModal;
+});
+
+// ============================================
+// EXIT INTENT POPUP & PUSH DOWN BANNER
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+  const exitPopup = document.getElementById('exitPopup');
+  const closeExitPopup = document.getElementById('closeExitPopup');
+  const pushDownBanner = document.getElementById('pushDownBanner');
+  const closePushDownBanner = document.getElementById('closePushDownBanner');
+  const bannerOpenModal = document.getElementById('bannerOpenModal');
+  
+  // Exit Intent Tracking Variables
+  let pageStartTime = Date.now();
+  let scrollUpCount = 0;
+  let hasScrolledPast50 = false;
+  let exitPopupShown = false;
+  let bannerShown = false;
+  
+  // Check localStorage for exit popup shown in this session
+  const exitPopupShownKey = 'exitPopupShown_' + new Date().toDateString();
+  if (localStorage.getItem(exitPopupShownKey) === 'true') {
+    exitPopupShown = true;
+  }
+  
+  // Sync spots and month with sticky bar
+  function syncExitPopupData() {
+    const spotsRemaining = document.getElementById('spotsRemaining');
+    const currentMonth = document.getElementById('currentMonth');
+    
+    if (spotsRemaining) {
+      const spots = spotsRemaining.textContent;
+      document.getElementById('exitSpotsRemaining').textContent = spots;
+      document.getElementById('bannerSpotsRemaining').textContent = spots;
+    }
+    
+    if (currentMonth) {
+      const month = currentMonth.textContent;
+      document.getElementById('exitCurrentMonth').textContent = month;
+      document.getElementById('bannerCurrentMonth').textContent = month;
+    }
+  }
+  
+  syncExitPopupData();
+  setInterval(syncExitPopupData, 5000);
+  
+  // Track scroll position and percentage
+  let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  let maxScroll = 0;
+  
+  window.addEventListener('scroll', function() {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercentage = (currentScroll / documentHeight) * 100;
+    
+    // Track if scrolled past 50%
+    if (scrollPercentage >= 50 && !hasScrolledPast50) {
+      hasScrolledPast50 = true;
+    }
+    
+    // Detect scroll up
+    if (currentScroll < lastScrollTop && currentScroll < maxScroll - 100) {
+      scrollUpCount++;
+      
+      // Show push-down banner after 50% scroll + scroll up
+      if (hasScrolledPast50 && scrollUpCount >= 2 && !bannerShown && !exitPopupShown) {
+        showPushDownBanner();
+      }
+    }
+    
+    lastScrollTop = currentScroll;
+    if (currentScroll > maxScroll) {
+      maxScroll = currentScroll;
+    }
+  }, { passive: true });
+  
+  // Mobile exit intent detection (mouseleave doesn't work well on mobile)
+  // Use touch events and visibility change
+  let touchStartY = 0;
+  
+  document.addEventListener('touchstart', function(e) {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  
+  document.addEventListener('touchend', function(e) {
+    const touchEndY = e.changedTouches[0].clientY;
+    // User swiping up (leaving) from bottom
+    if (touchStartY - touchEndY < -50) {
+      checkExitIntent();
+    }
+  }, { passive: true });
+  
+  // Desktop exit intent detection
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 0) {
+      checkExitIntent();
+    }
+  });
+  
+  // Function to check if exit popup should be shown
+  function checkExitIntent() {
+    const timeOnPage = Date.now() - pageStartTime;
+    const minTime = 60000; // 60 seconds
+    const hasInteracted = document.querySelector('.sticky-bar-button:active, .button-3:active, .button-8:active') !== null;
+    
+    // Conditions: min 60 seconds + scrolled past 50% + not shown before + user hasn't interacted with CTA
+    if (
+      timeOnPage >= minTime &&
+      hasScrolledPast50 &&
+      !exitPopupShown &&
+      scrollUpCount >= 2 &&
+      !exitPopup.classList.contains('show')
+    ) {
+      showExitPopup();
+    }
+  }
+  
+  // Function to show exit popup
+  function showExitPopup() {
+    if (exitPopupShown) return;
+    
+    exitPopup.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    
+    // Mark as shown in localStorage
+    localStorage.setItem(exitPopupShownKey, 'true');
+    exitPopupShown = true;
+    
+    // Hide push-down banner if showing
+    hidePushDownBanner();
+    
+    // Track exit popup shown
+    if (typeof fbq !== 'undefined') {
+      fbq('trackCustom', 'ExitPopupShown', {
+        content_name: 'Exit Intent Popup',
+        content_category: 'Exit Intent'
+      });
+    }
+  }
+  
+  // Function to hide exit popup
+  function hideExitPopup() {
+    exitPopup.classList.remove('show');
+    document.body.style.overflow = 'auto';
+  }
+  
+  // Function to show push-down banner
+  function showPushDownBanner() {
+    if (bannerShown || exitPopupShown) return;
+    
+    pushDownBanner.classList.add('show');
+    bannerShown = true;
+    
+    // Auto-hide after 10 seconds
+    setTimeout(function() {
+      if (pushDownBanner.classList.contains('show')) {
+        hidePushDownBanner();
+      }
+    }, 10000);
+  }
+  
+  // Function to hide push-down banner
+  function hidePushDownBanner() {
+    pushDownBanner.classList.remove('show');
+  }
+  
+  // Close exit popup
+  closeExitPopup.addEventListener('click', hideExitPopup);
+  
+  // Close exit popup on overlay click
+  exitPopup.querySelector('.exit-popup-overlay').addEventListener('click', hideExitPopup);
+  
+  // Close push-down banner
+  closePushDownBanner.addEventListener('click', hidePushDownBanner);
+  
+  // Banner CTA opens modal
+  if (bannerOpenModal) {
+    bannerOpenModal.addEventListener('click', function(e) {
+      e.preventDefault();
+      hidePushDownBanner();
+      if (typeof openModal === 'function') {
+        openModal();
+      }
+    });
+  }
+  
+  // Exit form submission (same logic as main form)
+  const exitForm = document.getElementById('exitForm');
+  const exitSubmitBtn = document.getElementById('exitSubmitBtn');
+  
+  if (exitForm && exitSubmitBtn) {
+    exitSubmitBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Validation (simplified - reuse existing validation if needed)
+      const firstName = document.getElementById('exitFirstName');
+      const lastName = document.getElementById('exitLastName');
+      const companyName = document.getElementById('exitCompanyName');
+      const companySector = document.getElementById('exitCompanySector');
+      const phone = document.getElementById('exitPhone');
+      const email = document.getElementById('exitEmail');
+      const privacy = document.getElementById('exitPrivacy');
+      
+      let isValid = true;
+      
+      if (!firstName.value.trim()) isValid = false;
+      if (!lastName.value.trim()) isValid = false;
+      if (!companyName.value.trim()) isValid = false;
+      if (!companySector.value.trim()) isValid = false;
+      if (!phone.value.trim()) isValid = false;
+      if (!email.value.trim() || !email.value.includes('@')) isValid = false;
+      if (!privacy.checked) isValid = false;
+      
+      if (!isValid) {
+        alert('Per favore compila tutti i campi obbligatori e accetta la privacy policy.');
+        return;
+      }
+      
+      // Submit form
+      const formData = new FormData(exitForm);
+      formData.append('page_url', window.location.href);
+      formData.append('source', 'exit_popup');
+      
+      fetch(exitForm.action, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.text())
+      .then(data => {
+        console.log('Exit form submitted:', data);
+        hideExitPopup();
+        
+        // Track Lead event
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'Lead', {
+            content_name: 'Exit Popup Form',
+            content_category: 'Form Submission'
+          });
+        }
+        
+        // Show thank you modal
+        if (typeof openThankYouModal === 'function') {
+          openThankYouModal();
+        }
+        
+        exitForm.reset();
+      })
+      .catch(error => {
+        console.error('Error submitting exit form:', error);
+        alert('Errore durante l\'invio. Riprova più tardi.');
+      });
+    });
+  }
 });
 </script>
 
