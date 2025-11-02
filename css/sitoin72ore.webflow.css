@@ -13596,6 +13596,16 @@ figcaption {
   .contact_component {
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact_component .contact_form-wrap-2 {
+    order: 1;
+  }
+  
+  .contact_component .contact_content {
+    order: 2;
   }
 
   .button-solid-3 {
@@ -13603,6 +13613,12 @@ figcaption {
     padding-top: .875rem;
     padding-bottom: .875rem;
     font-size: .875rem;
+  }
+  
+  /* Fix heading sizes for "Un processo trasparente" section */
+  .heading-11._3-3.white {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
   }
 
   .navbar_brand-2 {
