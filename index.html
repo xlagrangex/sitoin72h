@@ -3007,14 +3007,22 @@ document.addEventListener("DOMContentLoaded", () => {
     function getHeroBottom() {
       let bottomA = 0;
       let bottomB = 0;
-      if (heroA) bottomA = heroA.offsetTop + heroA.offsetHeight;
-      if (heroB) bottomB = heroB.offsetTop + heroB.offsetHeight;
+      if (heroA) {
+        const rect = heroA.getBoundingClientRect();
+        bottomA = rect.bottom + window.pageYOffset;
+      }
+      if (heroB) {
+        const rect = heroB.getBoundingClientRect();
+        bottomB = rect.bottom + window.pageYOffset;
+      }
       return Math.max(bottomA, bottomB);
     }
 
     function handleScroll() {
       const threshold = getHeroBottom();
       const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // Show sticky bar if scrolled past hero section (works in both directions)
       if (scrollPosition >= threshold) {
         stickyBar.classList.add('show');
       } else {
@@ -3026,7 +3034,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let ticking = false;
     function requestTick() {
       if (!ticking) {
-        requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
           handleScroll();
           ticking = false;
         });
@@ -3034,11 +3042,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    window.addEventListener('scroll', requestTick);
+    // Listen to scroll in both directions
+    window.addEventListener('scroll', requestTick, { passive: true });
     window.addEventListener('resize', requestTick);
 
     // Initial check
     handleScroll();
+    
+    // Also check on load completion
+    window.addEventListener('load', handleScroll);
   }
   // Initialize sticky bar immediately (we are already in a DOM-ready block)
   initStickyBar();
@@ -3200,11 +3212,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const month2Index = (currentMonthIndex + 1) % 12;
     const month3Index = (currentMonthIndex + 2) % 12;
     
-    // Define availability for each month
+    // Get current spots from sticky bar counter
+    const stickyBarSpots = document.getElementById('spotsRemaining');
+    const currentSpots = stickyBarSpots ? parseInt(stickyBarSpots.textContent) || 3 : 3;
+    
+    // Define availability for each month (using single numbers, not ranges)
     const availability = [
-      { spots: '3-5', color: '#e74c3c', label: 'Limitati', canBook: true },  // Current month - few spots left
-      { spots: '0', color: '#b0b0b0', label: 'Esauriti', canBook: false },   // Next month - sold out
-      { spots: '7-8', color: '#27ae60', label: 'Disponibili', canBook: true } // 2 months ahead - many spots
+      { spots: currentSpots, color: '#e74c3c', label: 'Limitati', canBook: currentSpots > 0 },  // Current month - sync with sticky bar
+      { spots: 0, color: '#b0b0b0', label: 'Esauriti', canBook: false },   // Next month - sold out
+      { spots: 7, color: '#27ae60', label: 'Disponibili', canBook: true } // 2 months ahead - many spots
     ];
     
     // Update each month card
@@ -3246,7 +3262,52 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
+  // Sync with sticky bar counter updates
+  function syncWithStickyBar() {
+    const stickyBarSpots = document.getElementById('spotsRemaining');
+    if (stickyBarSpots) {
+      const spotsEl = document.querySelector('.spots-1');
+      if (spotsEl) {
+        const currentSpots = parseInt(stickyBarSpots.textContent) || 0;
+        spotsEl.textContent = currentSpots;
+        
+        // Update color based on spots
+        if (currentSpots <= 3) {
+          spotsEl.style.color = '#e74c3c'; // Rosso
+        } else if (currentSpots <= 5) {
+          spotsEl.style.color = '#f39c12'; // Arancione
+        } else {
+          spotsEl.style.color = '#27ae60'; // Verde
+        }
+        
+        // Update label and button state
+        const labelEl = document.querySelector('.label-1');
+        const btnEl = document.querySelector('.btn-1');
+        if (currentSpots > 0) {
+          if (labelEl) labelEl.textContent = 'Limitati';
+          if (btnEl) {
+            btnEl.textContent = 'Blocca';
+            btnEl.style.background = '#171717';
+            btnEl.style.color = 'white';
+            btnEl.style.cursor = 'pointer';
+          }
+        } else {
+          if (labelEl) labelEl.textContent = 'Esauriti';
+          if (btnEl) {
+            btnEl.textContent = 'Esaurito';
+            btnEl.style.background = '#f0f0f0';
+            btnEl.style.color = '#999';
+            btnEl.style.cursor = 'not-allowed';
+          }
+        }
+      }
+    }
+  }
+  
   initProjectsCalendar();
+  
+  // Sync every 10 seconds with sticky bar counter
+  setInterval(syncWithStickyBar, 10000);
   
   // Re-initialize every hour to catch month changes
   setInterval(initProjectsCalendar, 3600000);
