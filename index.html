@@ -2887,7 +2887,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const reviews = sliderContent.querySelectorAll('.review-card');
     const totalReviews = reviews.length;
     let currentSlide = 0;
-    const reviewsPerSlide = 3;
+    const reviewsPerSlide = 1; // Show 1 review at a time on mobile
     const totalSlides = Math.ceil(totalReviews / reviewsPerSlide);
     
     // Show slider nav only on mobile
@@ -2895,10 +2895,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (window.innerWidth <= 768) {
         sliderNav.style.display = 'flex';
         sliderContent.style.display = 'flex';
-        sliderContent.style.width = '300%';
+        sliderContent.style.width = `${totalReviews * 100}%`; // Full width per each review
         reviews.forEach((review, index) => {
-          review.style.flex = '0 0 33.333%';
-          review.style.padding = '0 10px';
+          review.style.flex = '0 0 100%';
+          review.style.padding = '0';
         });
       } else {
         sliderNav.style.display = 'none';
@@ -2925,7 +2925,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Update slider position
     function updateSlider() {
-      const translateX = -currentSlide * (100 / totalSlides);
+      const translateX = -currentSlide * (100 / reviewsPerSlide);
       sliderContent.style.transform = `translateX(${translateX}%)`;
       
       // Update dots
@@ -3595,10 +3595,33 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Add click listeners to all buttons that should open the modal
-  const buttonsToOpenModal = document.querySelectorAll('.sticky-bar-button, .whatsapp-button, .secondobottone');
+  // Separate WhatsApp button from modal buttons
+  const whatsappButtons = document.querySelectorAll('.whatsapp-button');
+  whatsappButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Track WhatsApp click event in Meta Pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('trackCustom', 'WhatsAppClick', {
+          content_name: 'WhatsApp Contact',
+          content_category: 'Messaging'
+        });
+      }
+      
+      window.open('https://wa.me/393792473044?text=Ciao%2C%20vorrei%20maggiori%20informazioni%20sul%20vostro%20servizio%20di%20sviluppo%20siti%20web%20in%2072%20ore.', '_blank');
+    });
+  });
+  
+  // Other buttons that open modal
+  const buttonsToOpenModal = document.querySelectorAll('.sticky-bar-button, .secondobottone, .block-button');
   buttonsToOpenModal.forEach(button => {
     button.addEventListener('click', function(e) {
       e.preventDefault();
+      // Skip if button is disabled (Esaurito state)
+      if (button.textContent === 'Esaurito' || button.style.cursor === 'not-allowed') {
+        return;
+      }
       openModal();
     });
   });
