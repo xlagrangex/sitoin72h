@@ -10548,6 +10548,14 @@ figcaption {
   box-shadow: inset 2px 1px 3px #ffffff8a, 0 16px 20px #00000026;
 }
 
+.button-8._100:hover svg path {
+  fill: white;
+}
+
+.button-8._100:hover span {
+  color: white;
+}
+
 .reviews-fade {
   background-image: linear-gradient(180deg, transparent, var(--_colors---primary--beige));
   width: 100%;
