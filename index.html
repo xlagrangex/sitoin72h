@@ -2927,20 +2927,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function checkMobile() {
       if (window.innerWidth <= 768) {
         sliderNav.style.display = 'flex';
-        sliderContent.style.display = 'flex';
-        sliderContent.style.width = `${totalReviews * 100}%`; // Full width per each review
-        reviews.forEach((review, index) => {
-          review.style.flex = '0 0 100%';
-          review.style.padding = '0';
-        });
       } else {
         sliderNav.style.display = 'none';
-        sliderContent.style.display = 'block';
-        sliderContent.style.width = '100%';
-        reviews.forEach(review => {
-          review.style.flex = 'none';
-          review.style.padding = '0';
-        });
       }
     }
     
@@ -2997,17 +2985,17 @@ document.addEventListener("DOMContentLoaded", () => {
     nextBtn.addEventListener('click', nextSlide);
     prevBtn.addEventListener('click', prevSlide);
     
-    // Initialize
-    checkMobile();
-    createDots();
-    updateSlider();
-    
-    // Check on resize
-    window.addEventListener('resize', checkMobile);
+  // Initialize
+  checkMobile();
+  createDots();
+  updateSlider();
+  
+  // Check on resize
+  window.addEventListener('resize', checkMobile);
   }
   
-  // Initialize slider when DOM is loaded
-  document.addEventListener('DOMContentLoaded', initMobileReviewsSlider);
+  // Initialize slider immediately (we are already in a DOM-ready block)
+  initMobileReviewsSlider();
   
   // Cookie Banner Functionality
   function initCookieBanner() {
