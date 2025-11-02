@@ -3162,9 +3162,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.overflow = 'hidden';
     resetForm();
     
-    // Track InitiateCheckout event in Meta Pixel
+    // Track form opened event in Meta Pixel
     if (typeof fbq !== 'undefined') {
-      fbq('track', 'InitiateCheckout', {
+      fbq('trackCustom', 'FormOpened', {
         content_name: 'Started Contact Form',
         content_category: 'Lead Generation'
       });
@@ -3525,9 +3525,9 @@ document.addEventListener('DOMContentLoaded', function() {
     e.preventDefault();
     closeModalFunc();
     
-    // Track AddToCart event in Meta Pixel (contact via WhatsApp)
+    // Track WhatsApp click event in Meta Pixel
     if (typeof fbq !== 'undefined') {
-      fbq('track', 'AddToCart', {
+      fbq('trackCustom', 'WhatsAppClick', {
         content_name: 'WhatsApp Contact',
         content_category: 'Messaging'
       });
@@ -4006,9 +4006,9 @@ document.addEventListener('DOMContentLoaded', function() {
     thankYouWhatsappLink.addEventListener('click', function(e) {
       e.preventDefault();
       
-      // Track AddToCart event in Meta Pixel (WhatsApp after form submission)
+      // Track WhatsApp click event in Meta Pixel (after form submission)
       if (typeof fbq !== 'undefined') {
-        fbq('track', 'AddToCart', {
+        fbq('trackCustom', 'WhatsAppClick', {
           content_name: 'WhatsApp Contact - After Form',
           content_category: 'Messaging'
         });
@@ -4032,9 +4032,9 @@ document.addEventListener('DOMContentLoaded', function() {
     calendarModal.classList.add('show');
     document.body.style.overflow = 'hidden';
     
-    // Track Search event in Meta Pixel (looking for appointment)
+    // Track calendar opened event in Meta Pixel
     if (typeof fbq !== 'undefined') {
-      fbq('track', 'Search', {
+      fbq('trackCustom', 'CalendarOpened', {
         content_name: 'Book Appointment',
         content_category: 'Calendar Booking'
       });
