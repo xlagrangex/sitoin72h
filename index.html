@@ -34,6 +34,24 @@
     gtag('config', 'G-8071XVRGBM');
   </script>
   
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '3790057874620658');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=3790057874620658&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  
   <!-- AI Search Optimization -->
   <meta name="geo.region" content="IT">
   <meta name="geo.placename" content="Italia">
@@ -3143,6 +3161,14 @@ document.addEventListener('DOMContentLoaded', function() {
     modal.classList.add('show');
     document.body.style.overflow = 'hidden';
     resetForm();
+    
+    // Track InitiateCheckout event in Meta Pixel
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'InitiateCheckout', {
+        content_name: 'Started Contact Form',
+        content_category: 'Lead Generation'
+      });
+    }
   }
   
   // Function to close modal
@@ -3465,6 +3491,14 @@ document.addEventListener('DOMContentLoaded', function() {
         'event_label': 'contact_form'
       });
       
+      // Track Lead event in Meta Pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+          content_name: 'Contact Form - Popup',
+          content_category: 'Form Submission'
+        });
+      }
+      
       createConfettiEffect();
       
       // Close contact modal
@@ -3490,6 +3524,15 @@ document.addEventListener('DOMContentLoaded', function() {
   whatsappLink.addEventListener('click', function(e) {
     e.preventDefault();
     closeModalFunc();
+    
+    // Track AddToCart event in Meta Pixel (contact via WhatsApp)
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'AddToCart', {
+        content_name: 'WhatsApp Contact',
+        content_category: 'Messaging'
+      });
+    }
+    
     window.open('https://wa.me/393792473044?text=Ciao%2C%20vorrei%20maggiori%20informazioni%20sul%20vostro%20servizio%20di%20sviluppo%20siti%20web%20in%2072%20ore.', '_blank');
   });
   
@@ -3762,6 +3805,14 @@ document.addEventListener('DOMContentLoaded', function() {
           'event_label': 'contact_form'
         });
         
+        // Track Lead event in Meta Pixel for Contact Page Form
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'Lead', {
+            content_name: 'Contact Form - Contact Page',
+            content_category: 'Form Submission'
+          });
+        }
+        
         createConfettiEffect();
         setTimeout(() => {
           window.openThankYouModal();
@@ -3954,6 +4005,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     thankYouWhatsappLink.addEventListener('click', function(e) {
       e.preventDefault();
+      
+      // Track AddToCart event in Meta Pixel (WhatsApp after form submission)
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'AddToCart', {
+          content_name: 'WhatsApp Contact - After Form',
+          content_category: 'Messaging'
+        });
+      }
+      
       const message = encodeURIComponent("Ciao! Ho appena inviato una richiesta per il mio sito web in 72 ore. Vorrei maggiori informazioni!");
       window.open(`https://wa.me/393792473044?text=${message}`, '_blank');
     });
@@ -3971,6 +4031,14 @@ document.addEventListener('DOMContentLoaded', function() {
   function openCalendarModal() {
     calendarModal.classList.add('show');
     document.body.style.overflow = 'hidden';
+    
+    // Track Search event in Meta Pixel (looking for appointment)
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Search', {
+        content_name: 'Book Appointment',
+        content_category: 'Calendar Booking'
+      });
+    }
   }
   
   // Function to close calendar modal
@@ -4015,7 +4083,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 
-  <!-- Hidden Content for SEO and AI Search Optimization -->
+in  <!-- Hidden Content for SEO and AI Search Optimization -->
   <div style="position: absolute; left: -9999px; top: -9999px; visibility: hidden; opacity: 0; height: 0; width: 0; overflow: hidden;">
     <h1>Sito in 72 Ore - Sviluppo Web Professionale Veloce Italia</h1>
   <h2>Sviluppo Siti Web Professionali Milano Roma Napoli Torino Firenze Bologna Venezia Genova Palermo Catania Bari Verona Padova Trieste Brescia Parma Modena Reggio Emilia Prato Pisa Livorno Arezzo Perugia Terni Ancona Pesaro Urbino Macerata Ascoli Piceno Fermo Teramo Pescara L'Aquila Chieti Campobasso Isernia Caserta Salerno Avellino Benevento Foggia Lecce Brindisi Taranto Matera Potenza Cosenza Catanzaro Reggio Calabria Crotone Vibo Valentia Trapani Agrigento Caltanissetta Enna Ragusa Siracusa Messina Cagliari Sassari Nuoro Oristano Carbonia Olbia Tempio Pausania Iglesias Villacidro Quartu Sant'Elena Selargius Assemini Capoterra Monserrato Sestu Sinnai Quartucciu Elmas Decimomannu Uta Maracalagonis Settimo San Pietro</h2>
