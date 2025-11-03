@@ -71,27 +71,6 @@
   <meta name="DC.identifier" content="https://sitoin72h.com">
   <meta name="DC.source" content="https://sitoin72h.com">
   <meta name="DC.relation" content="https://sitoin72h.com">
-  <meta name="DC.coverage" content="Italia">
-  <meta name="DC.audience" content="Aziende, Professionisti, Business">
-  <meta name="DC.instructionalMethod" content="Servizio di Sviluppo Web">
-  <meta name="DC.learningResourceType" content="Servizio Web">
-  <meta name="DC.interactivityType" content="active">
-  <meta name="DC.interactivityLevel" content="medium">
-  <meta name="DC.semanticDensity" content="medium">
-  <meta name="DC.difficulty" content="easy">
-  <meta name="DC.typicalLearningTime" content="72 ore">
-  <meta name="DC.educationalLevel" content="business">
-  <meta name="DC.educationalAudience" content="imprenditori, professionisti, aziende">
-  <meta name="DC.educationalUse" content="sviluppo web professionale">
-  <meta name="DC.educationalContext" content="business, professionale, commerciale">
-  <meta name="DC.educationalLevel" content="intermedio">
-  <meta name="DC.educationalAudience" content="adulti, professionisti">
-  <meta name="DC.educationalUse" content="sviluppo, creazione, realizzazione">
-  <meta name="DC.educationalContext" content="web, digitale, online">
-  <meta name="DC.educationalLevel" content="avanzato">
-  <meta name="DC.educationalAudience" content="esperti, specialisti">
-  <meta name="DC.educationalUse" content="ottimizzazione, miglioramento, perfezionamento">
-  <meta name="DC.educationalContext" content="tecnico, professionale, specializzato">
   <meta content="images/favicon.png" property="og:image">
   <meta content="images/favicon.png" property="twitter:image">
   <meta content="https://sitoin72h.com" property="og:url">
@@ -2883,9 +2862,22 @@
   <script src="https://cdn.prod.website-files.com/gsap/3.13.0/gsap.min.js" type="text/javascript"></script>
   <script src="https://cdn.prod.website-files.com/gsap/3.13.0/SplitText.min.js" type="text/javascript"></script>
   <script src="https://cdn.prod.website-files.com/gsap/3.13.0/ScrollTrigger.min.js" type="text/javascript"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script>
 document.addEventListener("DOMContentLoaded", () => {
+  // Confetti lazy loader - only loads when needed
+  let confettiLoaded = false;
+  function loadConfetti() {
+    if (confettiLoaded) return Promise.resolve();
+    confettiLoaded = true;
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js';
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+  
   const form = document.querySelector("form");
   if (!form) return;
   form.addEventListener("submit", async (e) => {
@@ -3595,24 +3587,31 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize real-time validation
   setupRealTimeValidation();
   
-  // Confetti effect using canvas-confetti library
+  // Confetti effect using canvas-confetti library (lazy loaded)
   function createConfettiEffect() {
-    // Create confetti first
-    confetti({
-      particleCount: 200,
-      spread: 170,
-      origin: { y: 0.4 }
+    // Load confetti library first if not already loaded
+    loadConfetti().then(() => {
+      // Create confetti first
+      if (typeof confetti !== 'undefined') {
+        confetti({
+          particleCount: 200,
+          spread: 170,
+          origin: { y: 0.4 }
+        });
+        
+        // Then find and modify the canvas z-index
+        setTimeout(() => {
+          const canvases = document.querySelectorAll('canvas');
+          canvases.forEach(canvas => {
+            if (canvas.style.position === 'fixed') {
+              canvas.style.zIndex = '99999';
+            }
+          });
+        }, 10);
+      }
+    }).catch(() => {
+      console.error('Failed to load confetti library');
     });
-    
-    // Then find and modify the canvas z-index
-    setTimeout(() => {
-      const canvases = document.querySelectorAll('canvas');
-      canvases.forEach(canvas => {
-        if (canvas.style.position === 'fixed') {
-          canvas.style.zIndex = '99999';
-        }
-      });
-    }, 10);
   }
   
   // Add click listeners to all buttons that should open the modal
